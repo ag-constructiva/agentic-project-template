@@ -47,7 +47,15 @@ Der Agent übernimmt:
 * Arbeitsstände unter `02_work/` pflegen,
 * distributionsfähige Ergebnisse vorschlagen.
 
-## Wichtige Befehle
+## Getting started
+
+1. Öffne diesen Ordner
+2. Optional: Erste Quellen oder Notizen unter `01_sources/` ablegen.
+3. Gib deinem Agenten den Befehl `project start` — beim ersten Mal entsteht der Projektauftrag (bei jedem weiteren Mal der Wiedereinstieg)
+4. Arbeite mit deinem Agenten, wie es dir beliebt
+5. Wenn du unterbrechen willst, gib den Befehl `project close`, dann kannst du später dort wieder ansetzen.
+
+## Alle wichtigen Befehle
 
 ### Projekt starten
 
