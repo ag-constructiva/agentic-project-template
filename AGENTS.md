@@ -540,15 +540,15 @@ Der aktuelle Zustand wird gepflegt in:
 
 `state.md` ist kein chronologisches Protokoll. Die Datei enthält ausschließlich den aktuell relevanten Stand.
 
-Sie wird automatisch aktualisiert:
+`state.md` wird nicht nach jeder einzelnen wesentlichen Änderung sofort auf die Festplatte geschrieben. Stattdessen merkt sich der Agent wesentliche Änderungen zunächst nur innerhalb der laufenden Sitzung (im Kontext) und schreibt sie gesammelt in `state.md`:
 
-* nach wesentlichen inhaltlichen Änderungen,
-* nach relevanten Entscheidungen,
-* nach dem Erstellen oder Überarbeiten eines zentralen Artefakts,
-* nach dem Auftreten eines neuen Widerspruchs oder Risikos,
+* bei `project start` (Wiedereinstieg, bevor neue Arbeit beginnt),
 * bei `project update`,
 * bei `project close`,
-* wenn der Benutzer dies verlangt.
+* wenn der Benutzer dies verlangt,
+* sowie sofort, wenn ein neuer Widerspruch oder ein Risiko auftritt, das andernfalls bei einem abrupten Sitzungsende verloren ginge.
+
+Eine Änderung ist wesentlich und muss (spätestens gesammelt) übernommen werden, wenn sie das Ziel, den Wissensstand, eine Entscheidung, einen offenen Punkt, ein Risiko, eine nächste Aktion oder eine aktive Datei verändert.
 
 Keine Aktualisierung ist nötig bei:
 
@@ -557,7 +557,7 @@ Keine Aktualisierung ist nötig bei:
 * folgenlosen Formatkorrekturen,
 * unveränderten Rechercheergebnissen.
 
-Eine Änderung ist wesentlich, wenn sie das Ziel, den Wissensstand, eine Entscheidung, einen offenen Punkt, ein Risiko, eine nächste Aktion oder eine aktive Datei verändert.
+Zwischen den Schreibpunkten bleibt `state.md` auf dem Stand des letzten Schreibvorgangs; der Agent hält den aktuelleren Zwischenstand im Gespräch nach und gleicht ihn spätestens beim nächsten Schreibpunkt ab. Bricht die Sitzung unerwartet ab, kann dieser ungeschriebene Zwischenstand verloren gehen — das bewusst in Kauf genommene Tradeoff für geringeren Tokenverbrauch.
 
 Struktur:
 
