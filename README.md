@@ -1,6 +1,20 @@
 # Wissensprojekt
 
-Dieses Projekt unterstützt dich dabei, aus Quellen belastbare Erkenntnisse und fertige Ergebnisse zu entwickeln.
+Dieses Projekt ist eine Arbeitsvorlage für umfangreichere Wissensarbeit mit LLMs und Agenten.
+
+Es hilft dir dabei, aus Quellen und vorhandenem Kontext schrittweise belastbare Arbeitsergebnisse und daraus fertige, nutzbare Ergebnisse für einen konkreten Zweck zu entwickeln.
+
+Besonders sinnvoll ist diese Struktur, wenn du:
+
+- mit mehreren oder umfangreichen Quellen arbeitest,
+- Zwischenergebnisse später weiterverwenden möchtest,
+- Erkenntnisse, Annahmen und Entscheidungen nachvollziehbar halten willst,
+- über mehrere Sitzungen hinweg an einem Thema arbeitest,
+- aus Analyse und Wissensaufbau konkrete Ergebnisse erzeugen möchtest.
+
+Der fachliche Inhalt und der Umfang des Projekts sind offen. Es kann um eine Entscheidung, ein Konzept, eine Recherche, eine Strategie, eine Dokumentation oder ein anderes Ergebnis aus Wissensarbeit gehen.
+
+Damit der Agent sinnvoll arbeiten kann, beschreibst du zu Beginn, worum es in deinem Projekt geht, welchen Zweck es verfolgt und welche Ergebnisse entstehen sollen. Die Projektstruktur sorgt anschließend dafür, dass Quellen, Arbeitsstände und fertige Ergebnisse geordnet, nachvollziehbar und jederzeit wiederaufnehmbar bleiben.
 
 ## So ist das Projekt aufgebaut
 

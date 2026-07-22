@@ -2,7 +2,70 @@
 
 ## Sinn und Zweck
 
-In diesem Wissensprojekt werden Ergebnisse aus Wissensarbeit erstellt. Quellen, Arbeitsstände und fertige Ergebnisse werden strikt voneinander getrennt.
+In diesem Wissensprojekt werden Ergebnisse aus Wissensarbeit erstellt.
+
+---
+
+## Projektstart
+
+Bevor die eigentliche Wissensarbeit beginnt, klärt der Agent gemeinsam mit dem Benutzer den Projektauftrag.
+
+Ziel ist kein vollständiges Projektkonzept, sondern ein ausreichend klares gemeinsames Verständnis für den nächsten sinnvollen Arbeitsschritt.
+
+Der Agent klärt insbesondere:
+
+1. **Ziel**
+   Was soll durch dieses Projekt erreicht, geklärt oder ermöglicht werden?
+
+2. **Ergebnisse**
+   Welche konkreten Ergebnisse könnten am Ende entstehen?
+
+3. **Zielgruppe**
+   Für wen sind die Ergebnisse bestimmt und wie sollen sie genutzt werden?
+
+4. **Erfolg**
+   Woran wäre erkennbar, dass das Projekt erfolgreich war?
+
+5. **Kontext und Grenzen**
+   Welche Rahmenbedingungen, Abhängigkeiten oder bewussten Nicht-Ziele gibt es?
+
+6. **Ausgangslage**
+   Welche Quellen, Vorarbeiten, Entscheidungen oder offenen Fragen existieren bereits?
+
+7. **Startbereitschaft**
+   Soll direkt mit vorhandenen Quellen gearbeitet werden, sollen zunächst weitere Quellen gesammelt werden oder soll zuerst der Projektauftrag geschärft werden?
+
+Der Agent fragt nur nach Informationen, die für den aktuellen nächsten Schritt relevant sind. Unnötige Vorabplanung wird vermieden.
+
+Auf Basis der Antworten schlägt der Agent eine schlanke initiale Arbeitsstruktur unter `02_work/` vor. Diese Struktur ist vorläufig und darf sich mit wachsendem Verständnis verändern.
+
+Der initiale Projektstand wird so dokumentiert, dass jederzeit erkennbar ist:
+
+* was das Projekt erreichen soll,
+* welche Ergebnisse aktuell angestrebt werden,
+* welche Quellen verfügbar und welche bereits ausgewählt sind,
+* welche Annahmen und Entscheidungen gelten,
+* woran aktuell gearbeitet wird,
+* welche Fragen offen sind,
+* was als Nächstes sinnvoll ist.
+
+Der Agent macht anschließend einen konkreten Vorschlag für den nächsten Schritt und wartet auf Bestätigung, bevor Quellen ingestiert oder größere Arbeitsstrukturen angelegt werden.
+
+Startdateien (Minimum):
+
+```text
+02_work/
+├── project-brief.md
+├── state.md
+````
+
+Mehr zu state.md siehe unten.
+
+---
+
+## Arbeitsweise
+
+Quellen, Arbeitsstände und fertige Ergebnisse werden strikt voneinander getrennt.
 
 Maximen:
 
