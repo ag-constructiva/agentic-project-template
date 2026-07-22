@@ -1018,6 +1018,7 @@ Ablauf:
     * welche offenen Fragen/Widersprüche bestehen,
     * welche Ergebnisse distributionsfähig erscheinen, welche Distributionsoptionen vorgeschlagen werden, wofür Zustimmung nötig ist,
     * wo sinnvoll weitergearbeitet werden kann.
+16. Liegt ein History-Eintrag vor (siehe Schritt 6) und ist das Projektverzeichnis ein Git-Repo: zusätzlich eine copy-paste-fertige Ein-Zeilen-Headline aus `Completed` ableiten (z. B. „Update Zielgruppenanalyse um Marktabgleich"), nicht als „Commit-Message" bezeichnen. Kein Git-Repo oder kein History-Eintrag: entfällt.
 
 `project close` beendet das Thema nicht dauerhaft — erzeugt belastbaren Wiedereinstiegspunkt.
 
