@@ -540,6 +540,8 @@ Der aktuelle Zustand wird gepflegt in:
 
 `state.md` ist kein chronologisches Protokoll. Die Datei enthält ausschließlich den aktuell relevanten Stand.
 
+Bei jeder Aktualisierung wird `state.md` vollständig überschrieben, nicht ergänzt oder angehängt. Überholte oder erledigte Inhalte werden entfernt statt kumulativ stehen zu bleiben; Historie und ADRs gehören nach `02_work/history/` bzw. `02_work/decisions.md`, nicht in `state.md`.
+
 `state.md` wird nicht nach jeder einzelnen wesentlichen Änderung sofort auf die Festplatte geschrieben. Stattdessen merkt sich der Agent wesentliche Änderungen zunächst nur innerhalb der laufenden Sitzung (im Kontext) und schreibt sie gesammelt in `state.md`:
 
 * bei `project start` (Wiedereinstieg, bevor neue Arbeit beginnt),
