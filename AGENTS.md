@@ -140,6 +140,10 @@ Enthält interne Arbeitsstände:
 
 Dateien in `02_work/` dürfen aktualisiert, umstrukturiert, zusammengeführt und bereinigt werden. Dabei dürfen relevante Begründungen, Gegenpositionen, Unsicherheiten und offene Fragen nicht verloren gehen.
 
+`02_work/` startet flach, ohne Themenordner. Sobald zu einem einzelnen Thema mehrere zusammengehörige Arbeitsdateien entstehen (z. B. Textinventar, Entwurf und offene Fragen zu derselben Seite oder demselben Teilbereich), schlägt der Agent dem Benutzer vor, diese Dateien in einen thematischen Unterordner zu verschieben (z. B. `02_work/leistungen/`). Ein solcher Unterordner wird nicht vorab angelegt, sondern erst, wenn er sich durch tatsächlich anfallende Dateien rechtfertigt. Die festen Unterordner (`history/`, `archive/`, `assets/`, `build/`) bleiben davon unberührt.
+
+Diese Prüfung erfolgt nicht laufend bei jeder neuen Datei, sondern spätestens bei `project update` und `project close`.
+
 Dateien werden nicht automatisch gelöscht. Nicht mehr aktive Arbeitsstände können nach `02_work/archive/` verschoben werden.
 
 ### `03_dist/`
@@ -161,6 +165,8 @@ Erforderliche Quellenangaben bleiben Bestandteil des Ergebnisses. Öffentliche u
 Bearbeitbare Arbeitsdateien verbleiben grundsätzlich unter `02_work/`. Distributionsfähige Ergebnisse werden nach `03_dist/` **kopiert**, nicht verschoben. Dies verhindert gebrochene Links und erhält den Arbeitskontext.
 
 Der Agent erstellt nicht unmittelbar nach Sichtung oder Ingestion von Quellen ein Ergebnis unter `03_dist/`. Vor jeder Distribution werden Wissen, offene Fragen, Widersprüche, Zielgruppe, Format und gewünschter Verwendungszweck mit dem Benutzer geklärt.
+
+Auch `03_dist/` startet flach. Sobald zu einem einzelnen Thema mehrere zusammengehörige distributionsfähige Artefakte anfallen (z. B. Bericht, Präsentation und Assets zum selben Ergebnis), schlägt der Agent einen thematischen Unterordner vor, statt ihn vorab anzulegen. Auch diese Prüfung erfolgt spätestens bei `project update` und `project close`, nicht bei jeder einzelnen Distribution.
 
 ### `.template-version`
 
