@@ -49,6 +49,18 @@ Der Agent übernimmt:
 
 ## Wichtige Befehle
 
+### Projekt starten
+
+```text
+project start
+starten
+start
+los geht's
+los
+```
+
+Der einfachste Einstieg in jede Sitzung — immer der richtige erste Befehl. Beim allerersten Start klärt der Agent gemeinsam mit dir den Projektauftrag und legt die Startdateien an. Bei jedem weiteren Einstieg fasst er den aktuellen Stand zusammen und weist auf neue, noch nicht ausgewertete Quellen hin.
+
 ### Projektstand anzeigen
 
 ```text
@@ -83,11 +95,12 @@ Fertige Ergebnisse werden dabei nur vorgeschlagen. Das Kopieren nach `03_dist/` 
 
 ## Typischer Ablauf
 
-1. Quellen unter `01_sources/` ablegen.
-2. Ziel oder Frage formulieren.
-3. Agent analysiert und arbeitet unter `02_work/`.
-4. Zwischendurch mit `project status` den Stand prüfen.
-5. Fertiges Ergebnis prüfen und für `03_dist/` freigeben.
-6. Mit `project close` einen belastbaren Wiedereinstiegspunkt erzeugen.
+1. Mit `project start` beginnen — beim ersten Mal entsteht der Projektauftrag, bei jedem weiteren Mal der Wiedereinstieg.
+2. Quellen unter `01_sources/` ablegen.
+3. Ziel oder Frage formulieren.
+4. Agent analysiert und arbeitet unter `02_work/`.
+5. Zwischendurch mit `project status` den Stand prüfen.
+6. Fertiges Ergebnis prüfen und für `03_dist/` freigeben.
+7. Mit `project close` einen belastbaren Wiedereinstiegspunkt erzeugen.
 
 Du musst die Befehle nicht exakt verwenden. Normale Sprache reicht.

@@ -57,7 +57,7 @@ Startdateien (Minimum):
 02_work/
 ├── project-brief.md
 ├── state.md
-````
+```
 
 Mehr zu state.md siehe unten.
 
@@ -784,6 +784,42 @@ Die gewählte Variante wird dokumentiert.
 # User Commands
 
 Die folgenden Commands sind semantische Befehle. Der Benutzer muss sie nicht exakt schreiben. Gleichbedeutende natürliche Formulierungen sind ebenfalls gültig.
+
+`project start` ist der einfachste und empfohlene Einstiegspunkt in jede Sitzung. Bei Unklarheit, welcher Befehl zu Beginn passend ist, wird immer `project start` verwendet.
+
+## `project start`
+
+Beispiele:
+
+```text
+project start
+start
+starten
+Starte das Projekt.
+Lass uns anfangen.
+Ich möchte hier weiterarbeiten.
+Los
+Los geht's
+```
+
+Ablauf:
+
+1. Prüfe, ob `02_work/state.md` existiert.
+2. **Falls `state.md` nicht existiert (Erststart):**
+
+   a. Führe mit dem Benutzer die Klärung gemäß Abschnitt `Projektstart` oben durch (Ziel, Ergebnisse, Zielgruppe, Erfolg, Kontext und Grenzen, Ausgangslage, Startbereitschaft).
+   b. Lege auf Basis der Antworten `02_work/project-brief.md` und `02_work/state.md` an.
+   c. Aktualisiere anschließend `README.md` im Projektwurzelverzeichnis, sodass sie das konkrete Projekt beschreibt (Zweck, Zielgruppe, angestrebte Ergebnisse) statt der generischen Vorlagenbeschreibung. Die Abschnitte zu Projektstruktur und Befehlen bleiben inhaltlich erhalten.
+   d. Mache anschließend einen konkreten Vorschlag für den nächsten Schritt und warte auf Bestätigung, bevor Quellen ingestiert oder größere Arbeitsstrukturen angelegt werden.
+3. **Falls `state.md` bereits existiert (Wiedereinstieg):**
+
+   a. Lies `state.md`, insbesondere `Current Goal`, `Last Work`, `Open Questions` und `Next Actions`.
+   b. Prüfe kurz `01_sources/` im Vergleich zum `source-index.md` auf neue oder veränderte, noch nicht inventarisierte Dateien. Dies ist eine reine Dateiprüfung, keine inhaltliche Auswertung.
+   c. Falls neue oder veränderte Quellen erkannt wurden: weise den Benutzer knapp darauf hin und frage, ob der Workspace mittels `project update` aktualisiert werden soll.
+   d. Falls keine neuen Quellen erkannt wurden: fasse knapp Ziel, letzten Arbeitsstand und sinnvolle nächste Schritte zusammen, ohne automatisch `project update` anzustoßen.
+4. Verändere keine Dateien unter `01_sources/`, `02_work/decisions.md` oder `03_dist/` im Rahmen von `project start`, außer im Erststart gemäß Schritt 2.
+
+---
 
 ## `project status`
 
