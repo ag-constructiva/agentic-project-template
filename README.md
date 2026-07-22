@@ -101,6 +101,14 @@ Der Agent hält den aktuellen Stand, Entscheidungen, offene Fragen und nächste 
 
 Fertige Ergebnisse werden dabei nur vorgeschlagen. Das Kopieren nach `03_dist/` erfolgt erst nach deiner Zustimmung.
 
+### Projekt-Template aktualisieren
+
+```text
+update agentic-project-template
+```
+
+Prüft, ob für das öffentliche Template [`agentic-project-template`](https://github.com/ag-constructiva/agentic-project-template) eine neuere Version vorliegt, zeigt relevante Änderungen aus dessen Changelog und übernimmt sie erst nach deiner Zustimmung — Datei für Datei, unter Erhalt deiner lokalen Anpassungen.
+
 ## Typischer Ablauf
 
 1. Mit `project start` beginnen — beim ersten Mal entsteht der Projektauftrag, bei jedem weiteren Mal der Wiedereinstieg.

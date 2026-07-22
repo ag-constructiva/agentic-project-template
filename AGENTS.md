@@ -164,6 +164,20 @@ Bearbeitbare Arbeitsdateien verbleiben grundsätzlich unter `02_work/`. Distribu
 
 Der Agent erstellt nicht unmittelbar nach Sichtung oder Ingestion von Quellen ein Ergebnis unter `03_dist/`. Vor jeder Distribution werden Wissen, offene Fragen, Widersprüche, Zielgruppe, Format und gewünschter Verwendungszweck gemeinsam mit dem Benutzer geklärt.
 
+### `.template-version`
+
+Enthält, sofern dieses Projekt aus dem öffentlichen Template [`agentic-project-template`](https://github.com/ag-constructiva/agentic-project-template) hervorgegangen ist, den zuletzt synchronisierten Stand dieses Templates.
+
+Format:
+
+```text
+repo: https://github.com/ag-constructiva/agentic-project-template
+commit: <commit-hash>
+synced: YYYY-MM-DD
+```
+
+Diese Datei wird ausschließlich durch den Befehl `update agentic-project-template` angelegt oder aktualisiert. Sie ist kein Bestandteil der Wissensarbeit und wird nicht unter `01_sources/`, `02_work/` oder `03_dist/` abgelegt.
+
 ---
 
 ## Quellenklassen
@@ -832,7 +846,8 @@ Ablauf:
    a. Führe mit dem Benutzer die Klärung gemäß Abschnitt `Projektstart` oben durch (Ziel, Ergebnisse, Zielgruppe, Erfolg, Kontext und Grenzen, Ausgangslage, Startbereitschaft).
    b. Lege auf Basis der Antworten `02_work/project-brief.md` und `02_work/state.md` an.
    c. Aktualisiere anschließend `README.md` im Projektwurzelverzeichnis, sodass sie das konkrete Projekt beschreibt (Zweck, Zielgruppe, angestrebte Ergebnisse) statt der generischen Vorlagenbeschreibung. Die Abschnitte zu Projektstruktur und Befehlen bleiben inhaltlich erhalten.
-   d. Mache anschließend einen konkreten Vorschlag für den nächsten Schritt und warte auf Bestätigung, bevor Quellen ingestiert oder größere Arbeitsstrukturen angelegt werden.
+   d. Prüfe, ob `.template-version` bereits existiert. Falls nicht, frage den Benutzer, ob dieses Projekt mit dem öffentlichen Projekt-Template aktuell halten will (es wird dann mit `https://github.com/ag-constructiva/agentic-project-template` verknüpft und kann aktualisiert werden. Lege nach Zustimmung `.template-version` an — Vorgehen wie unter `update agentic-project-template`, Schritt 2b beschrieben.
+   e. Mache anschließend einen konkreten Vorschlag für den nächsten Schritt und warte auf Bestätigung, bevor Quellen ingestiert oder größere Arbeitsstrukturen angelegt werden.
 3. **Falls `state.md` bereits existiert (Wiedereinstieg):**
 
    a. Lies `state.md`, insbesondere `Current Goal`, `Last Work`, `Open Questions` und `Next Actions`.
@@ -991,3 +1006,43 @@ Ablauf:
 
 
 `project close` beendet das Thema nicht dauerhaft. Es erzeugt einen belastbaren Wiedereinstiegspunkt.
+
+---
+
+## `update agentic-project-template`
+
+Beispiele:
+
+```text
+update agentic-project-template
+Update project template
+Gibt es ein Update für das Projekt-Template?
+Prüfe, ob es eine neuere Version des Templates gibt.
+```
+
+Dieser Befehl prüft, ob für das öffentliche Template [`agentic-project-template`](https://github.com/ag-constructiva/agentic-project-template) eine neuere Version vorliegt als die, mit der dieses Projekt zuletzt synchronisiert wurde, und hilft bei der Übernahme relevanter Änderungen. Siehe `.template-version` unter `Verzeichnisstruktur` zur Bedeutung der Versionsdatei.
+
+Ablauf:
+
+1. Prüfe, ob `.template-version` im Projektwurzelverzeichnis existiert.
+2. **Falls `.template-version` nicht existiert:**
+
+   a. Frage den Benutzer, ob dieses Projekt jetzt mit dem öffentlichen Template unter `https://github.com/ag-constructiva/agentic-project-template` verknüpft werden soll.
+   b. Nach Zustimmung: Ermittle den aktuellen Commit-Hash des `main`-Branches über die GitHub-API (`https://api.github.com/repos/ag-constructiva/agentic-project-template/commits/main`) und lege `.template-version` mit Repository, Commit-Hash und Datum an.
+   c. Verändere in diesem Schritt keine weiteren Dateien.
+3. **Falls `.template-version` existiert:**
+
+   a. Rufe die GitHub-Compare-API auf: `https://api.github.com/repos/ag-constructiva/agentic-project-template/compare/<gespeicherter-commit-hash>...main`.
+   b. Ist der Status `identical` (bzw. `ahead_by: 0`): teile dem Benutzer knapp mit, dass keine Template-Aktualisierung vorliegt, und beende den Befehl ohne weitere Schritte.
+   c. Andernfalls: fasse dem Benutzer anhand der `commits[].commit.message`-Liste aus der Compare-Antwort grob zusammen, was sich seit dem zuletzt synchronisierten Stand geändert hat, und liste anhand von `files[].filename`, welche Dateien betroffen sind.
+   d. Frage den Benutzer ausdrücklich, ob diese Änderungen übernommen werden sollen.
+4. Bei Zustimmung zur Übernahme:
+
+   a. Beschränke dich auf die Template-Dateien (`AGENTS.md`, `CLAUDE.md`, die Struktur- und Befehlsabschnitte von `README.md`), die laut `files[].filename` der Compare-Antwort tatsächlich betroffen sind.
+   b. Lade für jede betroffene Datei die aktuelle Fassung vom Remote-Repository (`main`-Branch) und vergleiche sie mit der lokalen Fassung; die `files[].patch`-Angaben aus der Compare-Antwort können als zusätzlicher Anhaltspunkt dienen, ersetzen den Abgleich mit der lokalen Fassung aber nicht.
+   c. Ermittle dabei lokale, projektspezifische Anpassungen und schlage je Datei eine zusammengeführte Fassung vor, die neue Template-Inhalte integriert und lokale Anpassungen erhält. Wende eine Änderung erst nach ausdrücklicher Bestätigung an — je Datei einzeln, nicht pauschal für alle Dateien zugleich.
+   d. Aktualisiere nach Anwendung `.template-version` mit dem neuen Commit-Hash (dem `main`-Commit aus Schritt 3a) und Datum.
+   e. Halte die durchgeführte Aktualisierung in `state.md` fest (z. B. unter `Last Work`); lege bei wesentlichen strukturellen Auswirkungen zusätzlich einen ADR unter `decisions.md` an.
+5. Ohne Zustimmung des Benutzers in Schritt 3d oder 4c wird keine Datei verändert. Eine mögliche Aktualisierung wird stattdessen unter `Next Actions` in `state.md` festgehalten.
+6. Ist kein Netzwerkzugriff auf das Remote-Repository möglich, teilt der Agent dies mit und erfindet keinen Vergleichsstand.
+7. Dateien unter `01_sources/`, `02_work/` (mit Ausnahme von `state.md` und `decisions.md` gemäß Schritt 4e) und `03_dist/` werden durch diesen Befehl niemals verändert.
