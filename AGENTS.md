@@ -221,6 +221,28 @@ Zusammenfassungen, Interpretationen und Schlussfolgerungen des Agenten sind kein
 
 Sie müssen auf Quellen oder ausdrücklich gekennzeichneten Annahmen basieren.
 
+### Quellenglaubwürdigkeit
+
+Der Benutzer kann jeder Quelle unabhängig von ihrer Klasse eine Glaubwürdigkeitseinstufung zuweisen: `LOW`, `MEDIUM`/`MED` oder `HIGH`.
+
+Die Einstufung wird auf zwei Wegen erkannt:
+
+1. **Dateiname**: Enthält der Dateiname einen der Begriffe `LOW`, `MEDIUM`, `MED` oder `HIGH` vollständig großgeschrieben als eigenständigen Bestandteil (z. B. getrennt durch `-`, `_` oder Leerzeichen), gilt dies als Einstufung durch den Benutzer.
+   Beispiel: `interview-notizen-HIGH.md`
+2. **Inhaltliche Annotation**: Findet sich in den ersten Zeilen einer Quelle ein erkennbarer Hinweis zur Glaubwürdigkeit (z. B. `Glaubwürdigkeit: MEDIUM` oder ein vergleichbarer Hinweis in Textform), gilt dies ebenfalls als Einstufung durch den Benutzer.
+
+Eine inhaltliche Annotation hat immer Vorrang vor einer Einstufung über den Dateinamen.
+
+Eine erkannte Glaubwürdigkeitseinstufung wird im Quellenindex (`02_work/source-index.md`) festgehalten und bei der Gewichtung von `Belegte Erkenntnisse` und `Interpretationen` berücksichtigt. Fehlt eine Einstufung, gilt die Quelle als nicht eingestuft; dies wird nicht mit `MEDIUM` gleichgesetzt.
+
+#### Konsequenzen der Einstufung
+
+* **HIGH**: Auf dieser Quelle beruhende Aussagen gelten als belegte Grundlage. Der Agent baut ohne weitere Rückfrage auf ihnen auf.
+* **MEDIUM**: Auf dieser Quelle beruhende Aussagen sind grundsätzlich nutzbar. Der Agent weist an geeigneter Stelle darauf hin und schlägt dem Benutzer konkret vor, entweder weitere Quellen beizusteuern oder eine externe Recherche zur Bestätigung durchzuführen. Eine externe Recherche wird dabei nicht automatisch ausgeführt, sondern folgt weiterhin den Regeln unter `Externe Quellen` (nur nach ausdrücklicher Anweisung).
+* **LOW**: Jedes Arbeitsergebnis unter `02_work/`, das auf dieser Quelle beruht, erhält an der jeweiligen Stelle einen sichtbaren Warnhinweis (z. B. „> Warnhinweis: Aussage beruht auf einer Quelle mit geringer Glaubwürdigkeit"). Zusätzlich wird eine offene Aufgabe dokumentiert, weitere Evidenz zu beschaffen — unter `Offene Fragen` in der betroffenen Arbeitsdatei sowie unter `Open Questions` bzw. `Next Actions` in `state.md`. Diese offene Aufgabe bleibt bestehen, bis der Benutzer ausdrücklich etwas anderes festlegt (z. B. dass die Quelle trotz geringer Glaubwürdigkeit als ausreichend akzeptiert wird).
+
+Fehlt eine Einstufung, wird keine dieser Konsequenzen automatisch angewendet.
+
 ---
 
 ## Quellenaufnahme und Ingestion
@@ -460,9 +482,9 @@ Empfohlene Struktur:
 
 Updated: YYYY-MM-DD HH:MM
 
-| Quelle | Typ | Technischer Stand | Ingestion-Status | Ingestierter Umfang | Letzte Prüfung | Verwendet in | Hinweise |
-|---|---|---|---|---|---|---|---|
-| 01_sources/beispiel.pdf | Primärquelle | Hash oder Änderungsdatum | inventarisiert | — | YYYY-MM-DD | — |  |
+| Quelle | Typ | Glaubwürdigkeit | Technischer Stand | Ingestion-Status | Ingestierter Umfang | Letzte Prüfung | Verwendet in | Hinweise |
+|---|---|---|---|---|---|---|---|---|
+| 01_sources/beispiel.pdf | Primärquelle | — | Hash oder Änderungsdatum | inventarisiert | — | YYYY-MM-DD | — |  |
 ```
 
 Soweit technisch möglich, wird für lokale Quellen ein Hash verwendet. Andernfalls werden Dateigröße und Änderungsdatum dokumentiert.
