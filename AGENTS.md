@@ -8,7 +8,7 @@ In diesem Wissensprojekt werden Ergebnisse aus Wissensarbeit erstellt.
 
 ## Projektstart
 
-Bevor die eigentliche Wissensarbeit beginnt, klärt der Agent gemeinsam mit dem Benutzer den Projektauftrag.
+Bevor die Wissensarbeit beginnt, klärt der Agent mit dem Benutzer den Projektauftrag.
 
 Ziel ist kein vollständiges Projektkonzept, sondern ein ausreichend klares gemeinsames Verständnis für den nächsten sinnvollen Arbeitsschritt.
 
@@ -35,7 +35,7 @@ Der Agent klärt insbesondere:
 7. **Startbereitschaft**
    Soll direkt mit vorhandenen Quellen gearbeitet werden, sollen zunächst weitere Quellen gesammelt werden oder soll zuerst der Projektauftrag geschärft werden?
 
-Der Agent fragt nur nach Informationen, die für den aktuellen nächsten Schritt relevant sind. Unnötige Vorabplanung wird vermieden.
+Der Agent fragt nur nach Informationen, die für den nächsten Schritt relevant sind. Unnötige Vorabplanung wird vermieden.
 
 Auf Basis der Antworten schlägt der Agent eine schlanke initiale Arbeitsstruktur unter `02_work/` vor. Diese Struktur ist vorläufig und darf sich mit wachsendem Verständnis verändern.
 
@@ -74,9 +74,7 @@ Maximen:
 3. **Wissensarbeit entsteht zuerst unter `02_work/`; eine Distribution nach `03_dist/` erfolgt erst nach gemeinsamer Klärung.**
 4. **Fertige Ergebnisse sind eigenständig verständlich und nutzbar.**
 5. **Belegte Aussagen, Interpretationen, Annahmen und Entscheidungen werden unterscheidbar dokumentiert.**
-6. **Der aktuelle Arbeitsstand bleibt jederzeit wiederaufnehmbar.**
-
-Die Arbeit soll pausiert und später fortgesetzt werden können, ohne relevantes Wissen, Entscheidungen oder offene Punkte zu verlieren.
+6. **Der aktuelle Arbeitsstand bleibt jederzeit wiederaufnehmbar** — Pausieren und Fortsetzen darf kein relevantes Wissen, keine Entscheidung und keine offene Frage kosten.
 
 ---
 
@@ -123,7 +121,7 @@ Dateien unter `01_sources/` dürfen niemals:
 
 werden.
 
-Neue Dateien dürfen nur dann unter `01_sources/` abgelegt werden, wenn der Benutzer dies ausdrücklich verlangt oder eine Datei ausdrücklich als Projektquelle bereitstellt.
+Neue Dateien dürfen nur unter `01_sources/` abgelegt werden, wenn der Benutzer dies ausdrücklich verlangt oder eine Datei ausdrücklich als Projektquelle bereitstellt.
 
 ### `02_work/`
 
@@ -162,7 +160,7 @@ Erforderliche Quellenangaben bleiben Bestandteil des Ergebnisses. Öffentliche u
 
 Bearbeitbare Arbeitsdateien verbleiben grundsätzlich unter `02_work/`. Distributionsfähige Ergebnisse werden nach `03_dist/` **kopiert**, nicht verschoben. Dies verhindert gebrochene Links und erhält den Arbeitskontext.
 
-Der Agent erstellt nicht unmittelbar nach Sichtung oder Ingestion von Quellen ein Ergebnis unter `03_dist/`. Vor jeder Distribution werden Wissen, offene Fragen, Widersprüche, Zielgruppe, Format und gewünschter Verwendungszweck gemeinsam mit dem Benutzer geklärt.
+Der Agent erstellt nicht unmittelbar nach Sichtung oder Ingestion von Quellen ein Ergebnis unter `03_dist/`. Vor jeder Distribution werden Wissen, offene Fragen, Widersprüche, Zielgruppe, Format und gewünschter Verwendungszweck mit dem Benutzer geklärt.
 
 ### `.template-version`
 
@@ -256,7 +254,7 @@ Eine erkannte Glaubwürdigkeitseinstufung wird im Quellenindex (`02_work/source-
 #### Konsequenzen der Einstufung
 
 * **HIGH**: Auf dieser Quelle beruhende Aussagen gelten als belegte Grundlage. Der Agent baut ohne weitere Rückfrage auf ihnen auf.
-* **MEDIUM**: Auf dieser Quelle beruhende Aussagen sind grundsätzlich nutzbar. Der Agent weist an geeigneter Stelle darauf hin und schlägt dem Benutzer konkret vor, entweder weitere Quellen beizusteuern oder eine externe Recherche zur Bestätigung durchzuführen. Eine externe Recherche wird dabei nicht automatisch ausgeführt, sondern folgt weiterhin den Regeln unter `Externe Quellen` (nur nach ausdrücklicher Anweisung).
+* **MEDIUM**: Auf dieser Quelle beruhende Aussagen sind grundsätzlich nutzbar. Der Agent weist an geeigneter Stelle darauf hin und schlägt dem Benutzer konkret vor, entweder weitere Quellen beizusteuern oder eine externe Recherche zur Bestätigung durchzuführen. Eine externe Recherche erfolgt nur nach den Regeln unter `Externe Quellen` (ausdrückliche Anweisung erforderlich).
 * **LOW**: Jedes Arbeitsergebnis unter `02_work/`, das auf dieser Quelle beruht, erhält an der jeweiligen Stelle einen sichtbaren Warnhinweis (z. B. „> Warnhinweis: Aussage beruht auf einer Quelle mit geringer Glaubwürdigkeit"). Zusätzlich wird eine offene Aufgabe dokumentiert, weitere Evidenz zu beschaffen — unter `Offene Fragen` in der betroffenen Arbeitsdatei sowie unter `Open Questions` bzw. `Next Actions` in `state.md`. Diese offene Aufgabe bleibt bestehen, bis der Benutzer ausdrücklich etwas anderes festlegt (z. B. dass die Quelle trotz geringer Glaubwürdigkeit als ausreichend akzeptiert wird).
 
 Fehlt eine Einstufung, wird keine dieser Konsequenzen automatisch angewendet.
@@ -729,7 +727,7 @@ für Medien, die Bestandteil eines distributionsfähigen Ergebnisses sind.
 
 Bearbeitbare Quelldateien verbleiben unter `02_work/`. Exportierte Endformate werden nach `03_dist/` kopiert.
 
-Temporäre Build-Dateien dürfen bereinigt werden, wenn sie reproduzierbar und nicht mehr erforderlich sind. Primärquellen und relevante Arbeitsstände dürfen dabei nicht gelöscht werden.
+Temporäre Build-Dateien dürfen bereinigt werden, wenn sie reproduzierbar und nicht mehr erforderlich sind. Primärquellen und relevante Arbeitsstände dürfen nicht gelöscht werden.
 
 ---
 
@@ -844,16 +842,16 @@ Ablauf:
 
    a. Führe mit dem Benutzer die Klärung gemäß Abschnitt `Projektstart` oben durch (Ziel, Ergebnisse, Zielgruppe, Erfolg, Kontext und Grenzen, Ausgangslage, Startbereitschaft).
    b. Lege auf Basis der Antworten `02_work/project-brief.md` und `02_work/state.md` an.
-   c. Aktualisiere anschließend `README.md` im Projektwurzelverzeichnis, sodass sie das konkrete Projekt beschreibt (Zweck, Zielgruppe, angestrebte Ergebnisse) statt der generischen Vorlagenbeschreibung. Die Abschnitte zu Projektstruktur und Befehlen bleiben inhaltlich erhalten.
-   d. Prüfe, ob `.template-version` bereits existiert. Falls nicht, frage den Benutzer, ob dieses Projekt mit dem öffentlichen Projekt-Template aktuell halten will (es wird dann mit `https://github.com/ag-constructiva/agentic-project-template` verknüpft und kann aktualisiert werden. Lege nach Zustimmung `.template-version` an — Vorgehen wie in [UPDATE.md](UPDATE.md), Schritt 2b, beschrieben.
-   e. Mache anschließend einen konkreten Vorschlag für den nächsten Schritt und warte auf Bestätigung, bevor Quellen ingestiert oder größere Arbeitsstrukturen angelegt werden.
+   c. Aktualisiere `README.md` im Projektwurzelverzeichnis, sodass sie das konkrete Projekt beschreibt (Zweck, Zielgruppe, angestrebte Ergebnisse) statt der generischen Vorlagenbeschreibung. Die Abschnitte zu Projektstruktur und Befehlen bleiben inhaltlich erhalten.
+   d. Prüfe, ob `.template-version` bereits existiert. Falls nicht: frage den Benutzer, ob dieses Projekt mit dem öffentlichen Template aktuell gehalten werden soll (Verknüpfung mit `https://github.com/ag-constructiva/agentic-project-template`). Lege nach Zustimmung `.template-version` an — Vorgehen wie in [UPDATE.md](UPDATE.md), Schritt 2b.
+   e. Mache einen konkreten Vorschlag für den nächsten Schritt und warte auf Bestätigung, bevor Quellen ingestiert oder größere Arbeitsstrukturen angelegt werden.
 3. **Falls `state.md` bereits existiert (Wiedereinstieg):**
 
    a. Lies `state.md`, insbesondere `Current Goal`, `Last Work`, `Open Questions` und `Next Actions`.
    b. Prüfe kurz `01_sources/` im Vergleich zum `source-index.md` auf neue oder veränderte, noch nicht inventarisierte Dateien. Dies ist eine reine Dateiprüfung, keine inhaltliche Auswertung.
    c. Falls neue oder veränderte Quellen erkannt wurden: weise den Benutzer knapp darauf hin und frage, ob der Workspace mittels `project update` aktualisiert werden soll.
    d. Falls keine neuen Quellen erkannt wurden: fasse knapp Ziel, letzten Arbeitsstand und sinnvolle nächste Schritte zusammen, ohne automatisch `project update` anzustoßen.
-4. Verändere keine Dateien unter `01_sources/`, `02_work/decisions.md` oder `03_dist/` im Rahmen von `project start`, außer im Erststart gemäß Schritt 2.
+4. Verändere keine Dateien unter `01_sources/`, `02_work/decisions.md` oder `03_dist/`, außer im Erststart gemäß Schritt 2.
 
 ---
 
@@ -964,41 +962,29 @@ Ablauf:
 2. Ermittle alle seit dem letzten History-Eintrag relevanten Änderungen.
 3. Prüfe, ob unfertige Arbeitsstände existieren.
 4. Prüfe, ob Entscheidungen, Annahmen, offene Fragen und Risiken korrekt dokumentiert sind.
-5. Aktualisiere `state.md` vollständig.
-6. Halte insbesondere fest:
-
-   * aktuelles Ziel,
-   * erreichten Stand,
-   * zuletzt bearbeitete Inhalte,
-   * weiterhin gültige Entscheidungen,
-   * offene Fragen,
-   * nächste sinnvolle Schritte,
-   * aktive Dateien,
-   * Risiken und Widersprüche.
-7. Erzeuge einen neuen History-Eintrag unter:
+5. Aktualisiere `state.md` vollständig — alle Felder gemäß Struktur unter `Arbeitszustand`.
+6. Erzeuge einen neuen History-Eintrag unter:
 
    ```text
    02_work/history/YYYY-MM-DD-HHMM.md
    ```
-8. Prüfe den Quellenstand: inventarisiert, freigegeben, ingestiert, teilweise ingestiert, zurückgestellt oder offen.
-9. Prüfe, ob relevante Quellen noch nicht ingestiert und wesentliche Fragen oder Widersprüche noch offen sind.
-10. Prüfe erst danach, ob distributionsfähige Ergebnisse unter `02_work/` liegen.
-11. Falls eine Distribution sinnvoll erscheint, schlage dem Benutzer konkrete Zielartefakte, Formate und Varianten vor.
-12. Benenne erst nach dieser Abstimmung eindeutig distributionsfähige Ergebnisse und schlage vor, sie nach `03_dist/` zu kopieren.
-13. Kopiere oder überschreibe keine Datei ohne ausdrückliche Zustimmung des Benutzers.
-14. Verschiebe keine Arbeitsdateien automatisch.
-15. Bei unklarem Reifegrad:
+7. Prüfe den Quellenstand: inventarisiert, freigegeben, ingestiert, teilweise ingestiert, zurückgestellt oder offen.
+8. Prüfe, ob relevante Quellen noch nicht ingestiert und wesentliche Fragen oder Widersprüche noch offen sind.
+9. Prüfe erst danach, ob distributionsfähige Ergebnisse unter `02_work/` liegen.
+10. Falls eine Distribution sinnvoll erscheint, schlage dem Benutzer konkrete Zielartefakte, Formate und Varianten vor.
+11. Benenne erst nach dieser Abstimmung eindeutig distributionsfähige Ergebnisse und schlage vor, sie nach `03_dist/` zu kopieren.
+12. Kopiere oder überschreibe keine Datei ohne ausdrückliche Zustimmung des Benutzers.
+13. Verschiebe keine Arbeitsdateien automatisch.
+14. Bei unklarem Reifegrad:
 
     * keine Distribution vorschlagen,
     * offene Qualitäts- oder Inhaltsfragen in `state.md` dokumentieren.
-16. Teile dem Benutzer knapp mit:
+15. Teile dem Benutzer knapp mit:
 
     * was festgehalten wurde,
     * wie der Quellen- und Ingestion-Stand ist,
     * welche offenen Fragen oder Widersprüche bestehen,
-    * welche Ergebnisse distributionsfähig erscheinen,
-    * welche Distributionsoptionen vorgeschlagen werden,
-    * für welche Distribution eine Zustimmung benötigt wird,
+    * welche Ergebnisse distributionsfähig erscheinen, welche Distributionsoptionen dafür vorgeschlagen werden und wofür eine Zustimmung benötigt wird,
     * wo sinnvoll weitergearbeitet werden kann.
 
 
