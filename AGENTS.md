@@ -7,9 +7,11 @@ In diesem Wissensprojekt werden Ergebnisse aus Wissensarbeit erstellt. Quellen, 
 Maximen:
 
 1. **Quellen werden niemals verändert.**
-2. **Fertige Ergebnisse sind eigenständig verständlich und nutzbar.**
-3. **Belegte Aussagen, Interpretationen, Annahmen und Entscheidungen werden unterscheidbar dokumentiert.**
-4. **Der aktuelle Arbeitsstand bleibt jederzeit wiederaufnehmbar.**
+2. **Quellen werden zuerst inventarisiert und erst nach Auswahl durch den Benutzer ingestiert.**
+3. **Wissensarbeit entsteht zuerst unter `02_work/`; eine Distribution nach `03_dist/` erfolgt erst nach gemeinsamer Klärung.**
+4. **Fertige Ergebnisse sind eigenständig verständlich und nutzbar.**
+5. **Belegte Aussagen, Interpretationen, Annahmen und Entscheidungen werden unterscheidbar dokumentiert.**
+6. **Der aktuelle Arbeitsstand bleibt jederzeit wiederaufnehmbar.**
 
 Die Arbeit soll pausiert und später fortgesetzt werden können, ohne relevantes Wissen, Entscheidungen oder offene Punkte zu verlieren.
 
@@ -97,6 +99,8 @@ Erforderliche Quellenangaben bleiben Bestandteil des Ergebnisses. Öffentliche u
 
 Bearbeitbare Arbeitsdateien verbleiben grundsätzlich unter `02_work/`. Distributionsfähige Ergebnisse werden nach `03_dist/` **kopiert**, nicht verschoben. Dies verhindert gebrochene Links und erhält den Arbeitskontext.
 
+Der Agent erstellt nicht unmittelbar nach Sichtung oder Ingestion von Quellen ein Ergebnis unter `03_dist/`. Vor jeder Distribution werden Wissen, offene Fragen, Widersprüche, Zielgruppe, Format und gewünschter Verwendungszweck gemeinsam mit dem Benutzer geklärt.
+
 ---
 
 ## Quellenklassen
@@ -153,6 +157,90 @@ Der Eintrag enthält mindestens:
 Zusammenfassungen, Interpretationen und Schlussfolgerungen des Agenten sind keine Quellen.
 
 Sie müssen auf Quellen oder ausdrücklich gekennzeichneten Annahmen basieren.
+
+---
+
+## Quellenaufnahme und Ingestion
+
+Quellen werden nicht automatisch vollständig eingelesen, ausgewertet oder verdichtet. Die Quellenaufnahme erfolgt stufenweise.
+
+### 1. Quelleninventar erstellen
+
+Der Agent prüft zunächst ausschließlich, welche Quellen vorhanden sind. Dabei werden soweit technisch möglich erfasst:
+
+* Dateiname oder Bezeichnung,
+* Typ und Format,
+* Größe, Änderungsdatum oder Hash,
+* grober erkennbarer Gegenstand,
+* möglicher Bezug zum aktuellen Ziel,
+* aktueller Ingestion-Status.
+
+Diese erste Prüfung dient der Orientierung. Sie ist noch keine vollständige inhaltliche Auswertung.
+
+### 2. Ingestion vorschlagen und abstimmen
+
+Auf Basis des Inventars schlägt der Agent vor:
+
+* welche Quellen voraussichtlich relevant sind,
+* in welcher Reihenfolge sie ingestiert werden sollten,
+* welche Quellen zunächst zurückgestellt werden können,
+* ob eine vollständige oder selektive Ingestion sinnvoll ist.
+
+Vor der erstmaligen Ingestion einer Quelle ist die Auswahl mit dem Benutzer abzustimmen. Eine explizite aktuelle Benutzeranweisung kann die Ingestion unmittelbar freigeben.
+
+### 3. Ingestion nachvollziehbar durchführen
+
+Für jede Quelle wird im Quellenindex mindestens einer dieser Zustände gepflegt:
+
+* `inventarisiert` — Quelle erkannt, aber noch nicht inhaltlich ausgewertet,
+* `zur-ingestion-vorgeschlagen` — vom Agenten zur Auswertung empfohlen,
+* `freigegeben` — vom Benutzer zur Ingestion ausgewählt,
+* `teilweise-ingestiert` — nur relevante Teile wurden ausgewertet,
+* `vollständig-ingestiert` — die Quelle wurde im erforderlichen Umfang vollständig ausgewertet,
+* `zurückgestellt` — aktuell bewusst nicht auszuwerten,
+* `nicht-relevant` — für das aktuelle Ziel nachweislich nicht erforderlich,
+* `fehlerhaft` — Ingestion war technisch oder inhaltlich nicht möglich.
+
+Bei teilweiser Ingestion wird dokumentiert, welche Seiten, Abschnitte, Bereiche oder Daten berücksichtigt wurden.
+
+### 4. Wissen unter `02_work/` aufbereiten
+
+Ingestierte Inhalte werden zunächst ausschließlich unter `02_work/` verarbeitet. Dort entstehen:
+
+* Extraktionen und strukturierte Notizen,
+* belegte Erkenntnisse,
+* Interpretationen und Annahmen,
+* Quellenvergleiche,
+* offene Fragen,
+* Widersprüche und Risiken,
+* mögliche Zielbilder und Ergebnisvarianten.
+
+Eine erste Verdichtung ist ein Arbeitsstand, kein distributionsfähiges Ergebnis.
+
+### 5. Offene Punkte klären
+
+Vor der Distribution prüft der Agent insbesondere:
+
+* Welche relevanten Quellen sind noch nicht ingestiert?
+* Welche Aussagen sind unklar, unbelegt oder widersprüchlich?
+* Welche Entscheidungen benötigen fachliche oder geschäftliche Bewertung?
+* Welche Zielgruppe, Nutzungssituation und Ergebnisform werden benötigt?
+* Welche Inhalte müssen noch ergänzt, verworfen oder priorisiert werden?
+
+Der Agent löst eindeutige Punkte selbstständig. Verbleibende Entscheidungen legt er dem Benutzer konkret und mit Vorschlag vor.
+
+### 6. Distribution gemeinsam festlegen
+
+Erst nach der Klärung schlägt der Agent konkrete Artefakte für `03_dist/` vor, beispielsweise:
+
+* Ziel und Zweck des Ergebnisses,
+* Zielgruppe,
+* Format,
+* Umfang und Struktur,
+* Varianten oder Priorisierung,
+* Dateiname und Zielformat.
+
+Die Erstellung, Kopie oder Aktualisierung unter `03_dist/` benötigt die ausdrückliche Zustimmung des Benutzers.
 
 ---
 
@@ -309,9 +397,9 @@ Empfohlene Struktur:
 
 Updated: YYYY-MM-DD HH:MM
 
-| Quelle | Typ | Stand | Letzte Prüfung | Verwendet in | Hinweise |
-|---|---|---|---|---|---|
-| 01_sources/beispiel.pdf | Primärquelle | Hash oder Änderungsdatum | YYYY-MM-DD | 02_work/analyse.md |  |
+| Quelle | Typ | Technischer Stand | Ingestion-Status | Ingestierter Umfang | Letzte Prüfung | Verwendet in | Hinweise |
+|---|---|---|---|---|---|---|---|
+| 01_sources/beispiel.pdf | Primärquelle | Hash oder Änderungsdatum | inventarisiert | — | YYYY-MM-DD | — |  |
 ```
 
 Soweit technisch möglich, wird für lokale Quellen ein Hash verwendet. Andernfalls werden Dateigröße und Änderungsdatum dokumentiert.
@@ -320,8 +408,12 @@ Der Index dient dazu:
 
 * neue Quellen zu erkennen,
 * veränderte Quellen zu erkennen,
+* den Ingestion-Status jeder Quelle nachzuvollziehen,
+* den bereits ausgewerteten Umfang sichtbar zu machen,
 * Verwendungen nachzuvollziehen,
-* nicht ausgewertete Quellen sichtbar zu machen.
+* nicht ausgewertete oder zurückgestellte Quellen sichtbar zu machen.
+
+Eine Quelle gilt nicht allein deshalb als ingestiert, weil sie technisch geöffnet, aufgelistet oder oberflächlich geprüft wurde.
 
 Der Quellenindex ist kein Ersatz für präzise Referenzen innerhalb der Arbeitsdateien.
 
@@ -379,7 +471,7 @@ Das aktuell verfolgte Ziel.
 
 ## Current State
 
-Kurze Beschreibung des erreichten Stands.
+Kurze Beschreibung des erreichten Stands einschließlich Quelleninventar und Ingestion-Fortschritt.
 
 ## Last Work
 
@@ -387,11 +479,13 @@ Was zuletzt konkret bearbeitet wurde.
 
 ## Decisions
 
-- Getroffene und weiterhin relevante Entscheidungen
+- Aktuell gültige Entscheidungen mit Verweis auf den zugehörigen ADR unter `02_work/decisions.md`
 
 ## Open Questions
 
-- Noch nicht beantwortete Fragen
+- Noch nicht beantwortete fachliche Fragen
+- Noch offene Entscheidungen zur Quellen-Ingestion
+- Noch offene Entscheidungen zu Zielgruppe, Format oder Distribution
 
 ## Next Actions
 
@@ -407,7 +501,55 @@ Was zuletzt konkret bearbeitet wurde.
 - Bekannte Widersprüche, Unsicherheiten oder Risiken
 ```
 
-Überholte Entscheidungen werden nicht kommentarlos entfernt. Sie werden durch die aktuell gültige Entscheidung ersetzt. Falls der Entscheidungswechsel später relevant sein kann, wird er zusätzlich in der Historie dokumentiert.
+Überholte Entscheidungen werden nicht kommentarlos entfernt. Sie werden durch die aktuell gültige Entscheidung ersetzt und zu dem zugehörigen ADR referenziert. `state.md` enthält nur die gegenwärtig gültige Entscheidung; die dauerhafte Entscheidungshistorie liegt in `02_work/decisions.md`.
+
+---
+
+## Architecture Decision Records (ADR)
+
+Dauerhafte Entscheidungen werden als append-only geführte ADRs dokumentiert unter:
+
+```text
+02_work/decisions.md
+```
+
+ADRs halten fest, warum eine Entscheidung getroffen wurde. Sie ersetzen weder den aktuellen Arbeitszustand in `state.md` noch die Arbeitsabschluss-Historie unter `02_work/history/`.
+
+Abgrenzung:
+
+* `state.md`: Was gilt aktuell?
+* `decisions.md`: Warum wurde eine wesentliche Entscheidung getroffen, geändert oder verworfen?
+* `history/`: Was wurde bei einem `project close` seit dem letzten Abschluss verändert?
+
+Ein ADR ist erforderlich, wenn eine Entscheidung wesentliche Auswirkungen hat auf:
+
+* Auswahl, Ausschluss oder Priorisierung von Quellen,
+* Umfang oder Reihenfolge der Ingestion,
+* Interpretation, Modell oder zentrale Annahmen,
+* Struktur zentraler Arbeitsartefakte,
+* Zielgruppe, Format oder Inhalt einer Distribution,
+* Übergang eines Artefakts nach `03_dist/`,
+* irreversible oder nur schwer rückgängig zu machende Schritte.
+
+Kleine, lokale und leicht reversible Arbeitsentscheidungen benötigen keinen ADR. Sie können in der betroffenen Arbeitsdatei oder in `state.md` dokumentiert werden.
+
+Decisions werden in einer Datei laufend fortgeschrieben.
+
+template pro Decision:
+
+```text
+## ADR-001 Kurze bezeichnung
+
+(DD.MM.YYYY hh:mm)
+Ausführung
+
+## ADR-002 Kurze bezeichnung
+
+(DD.MM.YYYY hh:mm)
+Ausführung
+```
+
+Die Nummer wird fortlaufend vergeben. Bestehende ADRs werden nicht gelöscht oder inhaltlich umgeschrieben. Statusänderungen, Korrekturen oder ersetzende Entscheidungen werden nachvollziehbar ergänzt oder durch einen neuen ADR dokumentiert.
 
 ---
 
@@ -541,6 +683,10 @@ Kleine oder leicht reversible Entscheidungen trifft der Agent selbstständig und
 
 Ein Ergebnis ist distributionsreif, wenn es:
 
+* auf einer mit dem Benutzer abgestimmten Quellenauswahl basiert,
+* relevante freigegebene Quellen im erforderlichen Umfang ingestiert wurden,
+* wesentliche offene Fragen und Widersprüche geklärt oder transparent ausgewiesen sind,
+* Zielgruppe, Zweck und Zielformat mit dem Benutzer abgestimmt sind,
 * den aktuellen Auftrag vollständig erfüllt,
 * ohne interne Arbeitsnotizen verständlich ist,
 * keine ungeklärten Platzhalter enthält,
@@ -549,7 +695,7 @@ Ein Ergebnis ist distributionsreif, wenn es:
 * sprachlich und strukturell geprüft wurde,
 * im vorgesehenen Zielformat nutzbar ist.
 
-Ist der Reifegrad eindeutig, schlägt der Agent vor, das Ergebnis nach `03_dist/` zu kopieren.
+Ist der Reifegrad eindeutig, schlägt der Agent zunächst konkrete Distributionsoptionen vor. Erst nach Auswahl oder Bestätigung durch den Benutzer schlägt er vor, das gewählte Ergebnis nach `03_dist/` zu kopieren.
 
 Vor dem Kopieren ist die ausdrückliche Zustimmung des Benutzers erforderlich.
 
@@ -625,40 +771,46 @@ Prüfe, ob es neues relevantes Wissen gibt.
 Ablauf:
 
 1. Lies `state.md` und `source-index.md`.
-2. Prüfe vorhandene Quellen unter `01_sources/` auf:
+2. Prüfe vorhandene Quellen unter `01_sources/` zunächst nur auf:
 
    * neue Dateien,
    * veränderte Dateien,
-   * bisher nicht ausgewertete Dateien.
-3. Aktualisiere `source-index.md`.
-4. Prüfe bestehende Quellenreferenzen.
-5. Werte neues oder verändertes Wissen aus.
-6. Externe Recherche erfolgt nur nach den Regeln unter `Externe Quellen`.
-7. Ergänze, korrigiere oder entferne überholte Inhalte und Verweise unter `02_work/`.
-8. Dateien unter `01_sources/` werden niemals verändert oder gelöscht.
-9. Vergleiche neues Wissen mit:
+   * bisher nicht inventarisierte Dateien,
+   * aktuellen Ingestion-Status.
+3. Aktualisiere das Quelleninventar in `source-index.md`, ohne neue Quellen automatisch vollständig zu ingestieren.
+4. Berichte dem Benutzer, welche Quellen vorhanden sind, und schlage eine priorisierte Ingestion-Auswahl vor.
+5. Werte nur Quellen aus, die bereits freigegeben sind oder deren Ingestion durch die aktuelle Benutzeranweisung eindeutig beauftragt wurde.
+6. Dokumentiere für jede bearbeitete Quelle Status und ingestierten Umfang im Quellenindex.
+7. Prüfe bestehende Quellenreferenzen.
+8. Externe Recherche erfolgt nur nach den Regeln unter `Externe Quellen`.
+9. Bereite neues oder verändertes Wissen zunächst unter `02_work/` auf.
+10. Ergänze, korrigiere oder entferne dort überholte Inhalte und Verweise.
+11. Dateien unter `01_sources/` werden niemals verändert oder gelöscht.
+12. Vergleiche neues Wissen mit:
 
-   * aktuellen Annahmen,
-   * Entscheidungen,
-   * Erkenntnissen,
-   * offenen Fragen,
-   * bestehenden Artefakten.
-10. Markiere:
+    * aktuellen Annahmen,
+    * Entscheidungen,
+    * Erkenntnissen,
+    * offenen Fragen,
+    * bestehenden Artefakten.
+13. Markiere:
 
     * neue Erkenntnisse,
     * veraltete Aussagen,
     * Widersprüche,
-    * mögliche Auswirkungen.
-11. Aktualisiere `state.md`.
-12. Verändere distributionsfähige Artefakte nur:
+    * mögliche Auswirkungen,
+    * noch nicht ingestierte relevante Quellen.
+14. Löse eindeutige offene Fragen und Widersprüche. Lege verbleibende fachliche oder geschäftliche Entscheidungen dem Benutzer mit konkretem Vorschlag vor.
+15. Aktualisiere `state.md`.
+16. Erstelle oder verändere keine Datei unter `03_dist/`, solange Quellenauswahl, offene Punkte und gewünschte Ergebnisform nicht mit dem Benutzer abgestimmt sind.
+17. Schlage erst danach geeignete Distributionsartefakte vor.
+18. Berichte knapp:
 
-    * wenn der Benutzer dies verlangt,
-    * oder wenn ihre Aktualisierung eindeutig Teil des Auftrags ist.
-13. Berichte knapp:
-
-    * was sich geändert hat,
-    * welche Auswirkungen bestehen,
-    * welche Fragen offen bleiben.
+    * welche Quellen inventarisiert wurden,
+    * welche Quellen ingestiert oder zurückgestellt wurden,
+    * was sich im Arbeitswissen geändert hat,
+    * welche Widersprüche oder Fragen offen bleiben,
+    * welche nächsten Ingestion- oder Distributionsentscheidungen anstehen.
 
 ---
 
@@ -695,20 +847,25 @@ Ablauf:
    ```text
    02_work/history/YYYY-MM-DD-HHMM.md
    ```
-8. Prüfe, ob distributionsfähige Ergebnisse unter `02_work/` liegen.
-9. Benenne eindeutig distributionsfähige Ergebnisse und schlage vor, sie nach `03_dist/` zu kopieren.
-10. Kopiere oder überschreibe keine Datei ohne ausdrückliche Zustimmung des Benutzers.
-11. Verschiebe keine Arbeitsdateien automatisch.
-12. Bei unklarem Reifegrad:
+8. Prüfe den Quellenstand: inventarisiert, freigegeben, ingestiert, teilweise ingestiert, zurückgestellt oder offen.
+9. Prüfe, ob relevante Quellen noch nicht ingestiert und wesentliche Fragen oder Widersprüche noch offen sind.
+10. Prüfe erst danach, ob distributionsfähige Ergebnisse unter `02_work/` liegen.
+11. Falls eine Distribution sinnvoll erscheint, schlage dem Benutzer konkrete Zielartefakte, Formate und Varianten vor.
+12. Benenne erst nach dieser Abstimmung eindeutig distributionsfähige Ergebnisse und schlage vor, sie nach `03_dist/` zu kopieren.
+13. Kopiere oder überschreibe keine Datei ohne ausdrückliche Zustimmung des Benutzers.
+14. Verschiebe keine Arbeitsdateien automatisch.
+15. Bei unklarem Reifegrad:
 
     * keine Distribution vorschlagen,
     * offene Qualitäts- oder Inhaltsfragen in `state.md` dokumentieren.
-13. Teile dem Benutzer knapp mit:
+16. Teile dem Benutzer knapp mit:
 
     * was festgehalten wurde,
+    * wie der Quellen- und Ingestion-Stand ist,
+    * welche offenen Fragen oder Widersprüche bestehen,
     * welche Ergebnisse distributionsfähig erscheinen,
+    * welche Distributionsoptionen vorgeschlagen werden,
     * für welche Distribution eine Zustimmung benötigt wird,
-    * welche offenen Punkte bestehen,
     * wo sinnvoll weitergearbeitet werden kann.
 
 
