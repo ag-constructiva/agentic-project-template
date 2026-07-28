@@ -42,12 +42,7 @@ Neue Benutzeranweisung darf frühere Entscheidungen ersetzen — Änderung in `s
 ```text
 01_sources/
 02_work/
-02_work/history/
-02_work/archive/
-02_work/assets/
-02_work/build/
 03_dist/
-03_dist/assets/
 ```
 
 ### `01_sources/`
@@ -83,7 +78,7 @@ Enthält interne Arbeitsstände:
 
 Dateien in `02_work/` dürfen aktualisiert, umstrukturiert, zusammengeführt, bereinigt werden — relevante Begründungen, Gegenpositionen, Unsicherheiten, offene Fragen dabei nicht verlieren.
 
-`02_work/` startet flach, ohne Themenordner. Entstehen zu einem Thema mehrere zusammengehörige Arbeitsdateien (z. B. Textinventar, Entwurf, offene Fragen zur selben Seite): thematischen Unterordner vorschlagen (z. B. `02_work/leistungen/`) — nicht vorab, erst wenn durch tatsächlich anfallende Dateien gerechtfertigt. Feste Unterordner (`history/`, `archive/`, `assets/`, `build/`) bleiben unberührt.
+`02_work/` startet flach, ohne Themenordner. Entstehen zu einem Thema mehrere zusammengehörige Arbeitsdateien (z. B. Textinventar, Entwurf, offene Fragen zur selben Seite): thematischen Unterordner vorschlagen (z. B. `02_work/leistungen/`) — nicht vorab, erst wenn durch tatsächlich anfallende Dateien gerechtfertigt.
 
 Prüfung nicht laufend bei jeder neuen Datei — spätestens bei `project update` und `project close`.
 
@@ -123,7 +118,11 @@ commit: <commit-hash>
 synced: YYYY-MM-DD
 ```
 
-Nur durch Befehl `update agentic-project-template` angelegt/aktualisiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
+Nur durch Befehl `update agentic-project-template` oder `update project template` o.ä. angelegt/aktualisiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
+
+### `INIT.md`
+
+Vollständiges Ablaufprotokoll für die Ersteinrichtung eines neuen Projekts, nur für den Agenten. Nur beim allerersten `project start` gelesen (wenn `02_work/state.md` noch nicht existiert). Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
 
 ### `UPDATE.md`
 
@@ -489,7 +488,7 @@ Aktueller Zustand gepflegt in:
 
 `state.md` ist kein chronologisches Protokoll — nur aktuell relevanter Stand.
 
-Bei jeder Aktualisierung vollständig überschreiben, nicht ergänzen/anhängen. Überholte/erledigte Inhalte entfernen statt kumulativ stehen lassen; Historie und ADRs gehören nach `02_work/history/` bzw. `02_work/decisions.md`, nicht in `state.md`.
+Bei jeder Aktualisierung vollständig überschreiben, nicht ergänzen/anhängen. Überholte/erledigte Inhalte entfernen statt kumulativ stehen lassen; Historie und DRs gehören nach `02_work/history/` bzw. `02_work/decisions.md`, nicht in `state.md`.
 
 `state.md` nicht nach jeder einzelnen wesentlichen Änderung sofort schreiben. Agent merkt sich wesentliche Änderungen zunächst nur im Gespräch (Kontext), schreibt gesammelt:
 
@@ -532,7 +531,7 @@ Was zuletzt konkret bearbeitet wurde.
 
 ## Decisions
 
-- Aktuell gültige Entscheidungen mit Verweis auf den zugehörigen ADR unter `02_work/decisions.md`
+- Aktuell gültige Entscheidungen mit Verweis auf den zugehörigen DR unter `02_work/decisions.md`
 
 ## Open Questions
 
@@ -544,29 +543,24 @@ Was zuletzt konkret bearbeitet wurde.
 
 - Sinnvolle nächste Schritte in Prioritätsreihenfolge
 
-## Active Files
-
-- 02_work/name1.md
-- 02_work/name2.md
-
 ## Risks and Conflicts
 
 - Bekannte Widersprüche, Unsicherheiten oder Risiken
 ```
 
-Überholte Entscheidungen nicht kommentarlos entfernen — durch aktuell gültige ersetzen, zum zugehörigen ADR referenzieren. `state.md` enthält nur gegenwärtig gültige Entscheidung; dauerhafte Entscheidungshistorie liegt in `02_work/decisions.md`.
+Überholte Entscheidungen nicht kommentarlos entfernen — durch aktuell gültige ersetzen, zum zugehörigen Decision Record referenzieren. `state.md` enthält nur gegenwärtig gültige Entscheidung; dauerhafte Entscheidungshistorie liegt in `02_work/decisions.md`.
 
 ---
 
-## Architecture Decision Records (ADR)
+## Decision Records (DR)
 
-Dauerhafte Entscheidungen als append-only ADRs dokumentiert unter:
+Dauerhafte Entscheidungen als append-only DRs dokumentiert unter:
 
 ```text
 02_work/decisions.md
 ```
 
-ADRs halten fest, warum eine Entscheidung getroffen wurde. Ersetzen weder `state.md` noch `02_work/history/`.
+DRs halten fest, warum eine Entscheidung getroffen wurde. Ersetzen weder `state.md` noch `02_work/history/`.
 
 Abgrenzung:
 
@@ -574,7 +568,7 @@ Abgrenzung:
 * `decisions.md`: Warum wurde eine wesentliche Entscheidung getroffen, geändert, verworfen?
 * `history/`: Was wurde bei `project close` seit dem letzten Abschluss verändert?
 
-ADR erforderlich, wenn Entscheidung wesentliche Auswirkungen hat auf:
+DR erforderlich, wenn Entscheidung wesentliche Auswirkungen hat auf:
 
 * Auswahl, Ausschluss oder Priorisierung von Quellen,
 * Umfang oder Reihenfolge der Ingestion,
@@ -584,25 +578,25 @@ ADR erforderlich, wenn Entscheidung wesentliche Auswirkungen hat auf:
 * Übergang eines Artefakts nach `03_dist/`,
 * irreversible oder schwer rückgängig zu machende Schritte.
 
-Kleine, lokale, leicht reversible Arbeitsentscheidungen: kein ADR nötig — dokumentierbar in Arbeitsdatei oder `state.md`.
+Kleine, lokale, leicht reversible Arbeitsentscheidungen: kein DR nötig — dokumentierbar in Arbeitsdatei oder `state.md`.
 
 Decisions laufend in einer Datei fortschreiben.
 
 Template pro Decision:
 
 ```text
-## ADR-001 Kurze bezeichnung
+## DR-001 Kurzbezeichnung
 
 (DD.MM.YYYY hh:mm)
 Ausführung
 
-## ADR-002 Kurze bezeichnung
+## DR-002 Kurzbezeichnung
 
 (DD.MM.YYYY hh:mm)
 Ausführung
 ```
 
-Nummer fortlaufend. Bestehende ADRs nicht löschen oder umschreiben. Statusänderungen, Korrekturen, ersetzende Entscheidungen: ergänzen oder neuen ADR anlegen.
+Nummer fortlaufend. Bestehende DRs nicht löschen oder umschreiben. Statusänderungen, Korrekturen, ersetzende Entscheidungen: ergänzen oder neuen DR anlegen.
 
 ---
 
@@ -672,14 +666,6 @@ für:
 * Build-Dateien,
 * Render-Zwischenstände,
 * generierte Hilfsdateien.
-
-Verwende:
-
-```text
-03_dist/assets/
-```
-
-für Medien als Bestandteil eines distributionsfähigen Ergebnisses.
 
 Bearbeitbare Quelldateien bleiben unter `02_work/`. Exportierte Endformate nach `03_dist/` kopiert.
 
