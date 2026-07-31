@@ -60,12 +60,12 @@ Der Agent übernimmt:
 | Befehl | Zweck |
 |---|---|
 | `start` | Sitzung beginnen — beim allerersten Mal Projekt einrichten, danach Stand zusammenfassen |
-| `project status` | Aktuellen Stand anzeigen |
+| `status` | Aktuellen Stand anzeigen |
 | `update` | Quellen und Arbeitsstände prüfen/aktualisieren |
 | `state save` | Zwischenstand sofort sichern |
 | `close` | Sitzung abschließen, Wiedereinstieg vorbereiten |
 
-Du musst die Befehle nicht exakt verwenden. Normale Sprache reicht. Vollständige Befehlsreferenz inkl. `update agentic-project-template`: [COMMANDS.md](COMMANDS.md).
+Du musst die Befehle nicht exakt verwenden. Normale Sprache reicht. Vollständige Befehlsreferenz inkl. `update template`: [COMMANDS.md](COMMANDS.md).
 
 ## Typischer Ablauf
 
@@ -73,6 +73,6 @@ Du musst die Befehle nicht exakt verwenden. Normale Sprache reicht. Vollständig
 2. Quellen unter `01_sources/` ablegen.
 3. Ziel oder Frage formulieren.
 4. Agent analysiert und arbeitet unter `02_work/`.
-5. Zwischendurch mit `project status` den Stand prüfen.
+5. Zwischendurch mit `status` den Stand prüfen.
 6. Fertiges Ergebnis prüfen und für `03_dist/` freigeben.
 7. Mit `close` einen belastbaren Wiedereinstiegspunkt erzeugen, in der nächsten Sitzung mit `start` wieder einsteigen.

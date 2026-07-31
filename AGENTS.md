@@ -118,7 +118,7 @@ commit: <commit-hash>
 synced: YYYY-MM-DD
 ```
 
-Nur durch Befehl `update agentic-project-template` oder `update project template` o.ä. angelegt/aktualisiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
+Nur durch Befehl `update template` (bzw. `update project-template`) o.ä. angelegt/aktualisiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
 
 ### `INIT.md`
 
@@ -126,11 +126,11 @@ Vollständiges Ablaufprotokoll für die Ersteinrichtung eines neuen Projekts, nu
 
 ### `UPDATE.md`
 
-Vollständiges Ablaufprotokoll für Befehl `update agentic-project-template`, nur für den Agenten. Nur bei Ausführung dieses Befehls gelesen. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`. Menschenlesbare Nutzungsinfos: `README.md`.
+Vollständiges Agenten-Ablaufprotokoll für Befehl `update template`. Nur bei Ausführung dieses Befehls gelesen. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`. Menschenlesbare Nutzungsinfos: `README.md`.
 
 ### `COMMANDS.md`
 
-Vollständige, menschenlesbare Befehlsreferenz. Vom Template verwaltet, bei `update agentic-project-template` mitsynchronisiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`. `README.md` bleibt davon unabhängig vollständig projekteigen und wird durch dieses Kommando nicht verändert.
+Vollständige, menschenlesbare Befehlsreferenz. Vom Template verwaltet, bei `update template` mitsynchronisiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`. `README.md` bleibt davon unabhängig vollständig projekteigen,  wird nicht durch dieses Kommando verändert.
 
 ---
 
@@ -610,7 +610,7 @@ Keine Sitzungsprotokolle je Interaktion.
 
 Bei `close` nur History-Eintrag, wenn seit letztem Eintrag substanzieller Fortschritt: Ziel verändert, nennenswerte Arbeit/Wissen entstanden, oder Widerspruch/Risiko aufgelöst.
 
-Reine Änderungen an `Active Files`/`Open Questions` lösen für sich keinen Eintrag aus — entstehen laufend, bereits in `state.md` aktuell. Entscheidungen allein auch nicht — dauerhaft in `decisions.md`. Reine Template-/Infrastruktur-Updates (z. B. `update agentic-project-template`) auch nicht — keine Wissensarbeit. Kein substanzieller Fortschritt (reine Statusabfragen, reine Umpriorisierung offener Punkte, reine Template-Syncs, unveränderte Zwischenstände) → kein Eintrag; `state.md` trotzdem aktualisieren.
+Reine Änderungen an `Active Files`/`Open Questions` lösen keinen Eintrag aus — entstehen laufend in `state.md`. Entscheidungen allein auch nicht — leben in `decisions.md`. Reine Template-/Infrastruktur-Updates (z. B. `update template`) auch nicht — keine Wissensarbeit. Kein substanzieller Fortschritt (reine Statusabfragen, reine Umpriorisierung offener Punkte, reine Template-Syncs, unveränderte Zwischenstände) → kein Eintrag; `state.md` trotzdem aktualisieren.
 
 Eintrag wiederholt unveränderte Abschnitte nicht vollständig. Unverändert seit letztem Eintrag (`Goal`, `Open Questions` o. ä.) → darauf verweisen (z. B. „Unverändert gegenüber [vorheriger Eintrag](2026-07-22-1620.md)"), nicht erneut ausschreiben.
 
@@ -795,12 +795,12 @@ Ablauf:
 
 ---
 
-## `project status`
+## `status`
 
 Beispiele:
 
 ```text
-project status
+status
 Wo stehen wir?
 Was ist hier der aktuelle Stand?
 ```
@@ -953,13 +953,13 @@ Ablauf:
 
 ---
 
-## `update agentic-project-template`
+## `update template` / `update project-template`
 
 Beispiele:
 
 ```text
-update agentic-project-template
-Update project template
+update template
+update project-template
 Gibt es ein Update für das Projekt-Template?
 ```
 

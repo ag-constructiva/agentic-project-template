@@ -1,6 +1,6 @@
 # Alle wichtigen Befehle
 
-> Diese Datei wird vom Template [`agentic-project-template`](https://github.com/ag-constructiva/agentic-project-template) verwaltet und bei `update agentic-project-template` mitsynchronisiert. Für die vollständige Ablauflogik siehe [AGENTS.md](AGENTS.md).
+> Diese Datei wird vom Template [`agentic-project-template`](https://github.com/ag-constructiva/agentic-project-template) verwaltet und bei `update template` mitsynchronisiert. Vollständige Ablauflogik siehe [AGENTS.md](AGENTS.md).
 
 Du musst die Befehle nicht exakt verwenden. Normale Sprache reicht.
 
@@ -19,7 +19,7 @@ Der richtige erste Befehl in jeder Sitzung — auch der allerersten. Beim allere
 ### Projektstand anzeigen
 
 ```text
-project status
+status
 ```
 
 Auch natürliche Formulierungen funktionieren:
@@ -63,7 +63,8 @@ Fertige Ergebnisse werden dabei nur vorgeschlagen. Das Kopieren nach `03_dist/` 
 ### Projekt-Template aktualisieren
 
 ```text
-update agentic-project-template
+update template
+update project-template
 ```
 
 Prüft, ob für das öffentliche Template [`agentic-project-template`](https://github.com/ag-constructiva/agentic-project-template) eine neuere Version vorliegt, zeigt relevante Änderungen aus dessen Changelog und übernimmt sie erst nach deiner Zustimmung — Datei für Datei, unter Erhalt deiner lokalen Anpassungen.

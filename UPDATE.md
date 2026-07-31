@@ -1,18 +1,18 @@
 # Template-Update — Agentenprotokoll
 
-> **Hinweis:** Diese Datei enthält ausschließlich technische Ablaufanweisungen für den Agenten zum Befehl `update agentic-project-template`. Wird nur eingelesen bei Ausführung dieses Befehls. Für Nutzungsinfos: siehe [README.md](README.md); für alle übrigen Arbeitsregeln siehe [AGENTS.md](AGENTS.md).
+> **Hinweis:** Diese Datei enthält nur technische Agenten-Anweisungen zum Befehl `update template`. Wird nur eingelesen bei Ausführung dieses Befehls. Für Nutzungsinfos: siehe [README.md](README.md); für alle übrigen Arbeitsregeln siehe [AGENTS.md](AGENTS.md).
 
-## `update agentic-project-template`
+## `update template` / `update project-template`
 
 Beispiele:
 
 ```text
-update agentic-project-template
-Update project template
+update template
+update project-template
 Gibt es ein Update für das Projekt-Template?
 ```
 
-Prüft, ob für das öffentliche Template [`agentic-project-template`](https://github.com/ag-constructiva/agentic-project-template) eine neuere Version vorliegt als die zuletzt synchronisierte, hilft bei Übernahme relevanter Änderungen. Siehe `.template-version` unter `Verzeichnisstruktur` in [AGENTS.md](AGENTS.md).
+Prüft: liegt neuere Version für Template [`agentic-project-template`](https://github.com/ag-constructiva/agentic-project-template) vor als die zuletzt synchronisierte? Hilft bei Übernahme relevanter Änderungen. Siehe `.template-version` unter `Verzeichnisstruktur` in [AGENTS.md](AGENTS.md).
 
 Ablauf:
 
