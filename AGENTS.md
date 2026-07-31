@@ -80,7 +80,7 @@ Dateien in `02_work/` dürfen aktualisiert, umstrukturiert, zusammengeführt, be
 
 `02_work/` startet flach, ohne Themenordner. Entstehen zu einem Thema mehrere zusammengehörige Arbeitsdateien (z. B. Textinventar, Entwurf, offene Fragen zur selben Seite): thematischen Unterordner vorschlagen (z. B. `02_work/leistungen/`) — nicht vorab, erst wenn durch tatsächlich anfallende Dateien gerechtfertigt.
 
-Prüfung nicht laufend bei jeder neuen Datei — spätestens bei `project update` und `project close`.
+Prüfung nicht laufend bei jeder neuen Datei — spätestens bei `update` und `close`.
 
 Dateien nicht automatisch löschen. Inaktive Arbeitsstände: nach `02_work/archive/` verschieben.
 
@@ -104,7 +104,7 @@ Bearbeitbare Arbeitsdateien bleiben unter `02_work/`. Distributionsfähige Ergeb
 
 Kein Ergebnis unter `03_dist/` unmittelbar nach Sichtung/Ingestion von Quellen. Vor jeder Distribution: Wissen, offene Fragen, Widersprüche, Zielgruppe, Format, Verwendungszweck mit Nutzer klären.
 
-Auch `03_dist/` startet flach. Fallen zu einem Thema mehrere zusammengehörige distributionsfähige Artefakte an (z. B. Bericht, Präsentation, Assets zum selben Ergebnis): thematischen Unterordner vorschlagen, nicht vorab anlegen. Prüfung spätestens bei `project update` und `project close`, nicht bei jeder einzelnen Distribution.
+Auch `03_dist/` startet flach. Fallen zu einem Thema mehrere zusammengehörige distributionsfähige Artefakte an (z. B. Bericht, Präsentation, Assets zum selben Ergebnis): thematischen Unterordner vorschlagen, nicht vorab anlegen. Prüfung spätestens bei `update` und `close`, nicht bei jeder einzelnen Distribution.
 
 ### `.template-version`
 
@@ -122,11 +122,15 @@ Nur durch Befehl `update agentic-project-template` oder `update project template
 
 ### `INIT.md`
 
-Vollständiges Ablaufprotokoll für die Ersteinrichtung eines neuen Projekts, nur für den Agenten. Nur beim allerersten `project start` gelesen (wenn `02_work/state.md` noch nicht existiert). Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
+Vollständiges Ablaufprotokoll für die Ersteinrichtung eines neuen Projekts, nur für den Agenten. Nur beim allerersten `start` gelesen, wenn `02_work/state.md` noch nicht existiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
 
 ### `UPDATE.md`
 
 Vollständiges Ablaufprotokoll für Befehl `update agentic-project-template`, nur für den Agenten. Nur bei Ausführung dieses Befehls gelesen. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`. Menschenlesbare Nutzungsinfos: `README.md`.
+
+### `COMMANDS.md`
+
+Vollständige, menschenlesbare Befehlsreferenz. Vom Template verwaltet, bei `update agentic-project-template` mitsynchronisiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`. `README.md` bleibt davon unabhängig vollständig projekteigen und wird durch dieses Kommando nicht verändert.
 
 ---
 
@@ -492,9 +496,9 @@ Bei jeder Aktualisierung vollständig überschreiben, nicht ergänzen/anhängen.
 
 `state.md` nicht nach jeder einzelnen wesentlichen Änderung sofort schreiben. Agent merkt sich wesentliche Änderungen zunächst nur im Gespräch (Kontext), schreibt gesammelt:
 
-* bei `project start` (Wiedereinstieg, vor neuer Arbeit),
-* bei `project update`,
-* bei `project close`,
+* bei `start` (Wiedereinstieg, vor neuer Arbeit),
+* bei `update`,
+* bei `close`,
 * bei `state save` (siehe `User Commands`),
 * wenn Nutzer dies verlangt,
 * sowie sofort bei neuem Widerspruch/Risiko, das sonst bei abruptem Sitzungsende verloren ginge.
@@ -566,7 +570,7 @@ Abgrenzung:
 
 * `state.md`: Was gilt aktuell?
 * `decisions.md`: Warum wurde eine wesentliche Entscheidung getroffen, geändert, verworfen?
-* `history/`: Was wurde bei `project close` seit dem letzten Abschluss verändert?
+* `history/`: Was wurde bei `close` seit dem letzten Abschluss verändert?
 
 DR erforderlich, wenn Entscheidung wesentliche Auswirkungen hat auf:
 
@@ -604,7 +608,7 @@ Nummer fortlaufend. Bestehende DRs nicht löschen oder umschreiben. Statusänder
 
 Keine Sitzungsprotokolle je Interaktion.
 
-Bei `project close` nur History-Eintrag, wenn seit letztem Eintrag substanzieller Fortschritt: Ziel verändert, nennenswerte Arbeit/Wissen entstanden, oder Widerspruch/Risiko aufgelöst.
+Bei `close` nur History-Eintrag, wenn seit letztem Eintrag substanzieller Fortschritt: Ziel verändert, nennenswerte Arbeit/Wissen entstanden, oder Widerspruch/Risiko aufgelöst.
 
 Reine Änderungen an `Active Files`/`Open Questions` lösen für sich keinen Eintrag aus — entstehen laufend, bereits in `state.md` aktuell. Entscheidungen allein auch nicht — dauerhaft in `decisions.md`. Reine Template-/Infrastruktur-Updates (z. B. `update agentic-project-template`) auch nicht — keine Wissensarbeit. Kein substanzieller Fortschritt (reine Statusabfragen, reine Umpriorisierung offener Punkte, reine Template-Syncs, unveränderte Zwischenstände) → kein Eintrag; `state.md` trotzdem aktualisieren.
 
@@ -765,14 +769,14 @@ Gewählte Variante dokumentieren.
 
 Semantische Befehle — Nutzer muss sie nicht exakt schreiben, gleichbedeutende natürliche Formulierungen gültig.
 
-`project start` ist einfachster, empfohlener Einstiegspunkt in jede Sitzung. Bei Unklarheit, welcher Befehl passt: immer `project start`.
+`session start`/`start` ist der empfohlene Einstiegspunkt in jede Sitzung — auch die allererste. Bei Unklarheit, welcher Befehl passt: immer `start`.
 
-## `project start`
+## `session start` / `start`
 
 Beispiele:
 
 ```text
-project start
+session start
 start
 Lass uns anfangen.
 ```
@@ -780,14 +784,14 @@ Lass uns anfangen.
 Ablauf:
 
 1. Prüfen, ob `02_work/state.md` existiert.
-2. **Falls nicht (Erststart):** [INIT.md](INIT.md) vollständig lesen, Ablauf dort Schritt für Schritt folgen — nur bei diesem Erststart gelesen, nicht bei Wiedereinstieg.
-3. **Falls `state.md` existiert (Wiedereinstieg):**
+2. **Falls nicht (Ersteinrichtung):** [INIT.md](INIT.md) vollständig lesen, Ablauf dort Schritt für Schritt folgen — nur bei dieser Ersteinrichtung gelesen, nicht bei weiterem Einstieg.
+3. **Falls `state.md` existiert (Regelfall):**
 
    a. `state.md` lesen, insbesondere `Current Goal`, `Last Work`, `Open Questions`, `Next Actions`.
    b. `01_sources/` kurz gegen `source-index.md` auf neue/veränderte, nicht inventarisierte Dateien prüfen — reine Dateiprüfung, keine inhaltliche Auswertung.
-   c. Neue/veränderte Quellen erkannt: Nutzer knapp hinweisen, fragen ob `project update` sinnvoll.
-   d. Keine neuen Quellen: Ziel, letzten Arbeitsstand, sinnvolle nächste Schritte knapp zusammenfassen, ohne automatisch `project update` anzustoßen.
-4. Keine Dateien unter `01_sources/`, `02_work/decisions.md` oder `03_dist/` verändern, außer im Erststart gemäß Schritt 2.
+   c. Neue/veränderte Quellen erkannt: Nutzer knapp hinweisen, fragen ob `update` sinnvoll.
+   d. Keine neuen Quellen: Ziel, letzten Arbeitsstand, sinnvolle nächste Schritte knapp zusammenfassen, ohne automatisch `update` anzustoßen.
+4. Keine Dateien unter `01_sources/`, `02_work/decisions.md` oder `03_dist/` verändern, außer im Zuge der Ersteinrichtung gemäß Schritt 2.
 
 ---
 
@@ -837,7 +841,7 @@ Halte den Zwischenstand fest.
 Schreib den State jetzt.
 ```
 
-Schreibt im Gespräch gehaltenen Zwischenstand sofort nach `02_work/state.md`, ohne übrige Schritte von `project close` — kein History-Eintrag, keine erneute Quellenprüfung, keine Distributionsprüfung.
+Schreibt im Gespräch gehaltenen Zwischenstand sofort nach `02_work/state.md`, ohne übrige Schritte von `close` — kein History-Eintrag, keine erneute Quellenprüfung, keine Distributionsprüfung.
 
 Ablauf:
 
@@ -845,16 +849,17 @@ Ablauf:
 2. Keine anderen Dateien verändern.
 3. Knapp bestätigen, dass Zwischenstand geschrieben wurde.
 
-Sinnvoll als Absicherung während längerer Sitzung, wenn noch kein `project close` ansteht, ein abrupter Abbruch aber Zwischenstand kosten würde.
+Sinnvoll als Absicherung während längerer Sitzung, wenn noch kein `close` ansteht, ein abrupter Abbruch aber Zwischenstand kosten würde.
 
 ---
 
-## `project update`
+## `update` / `update sources`
 
 Beispiele:
 
 ```text
-project update
+update
+update sources
 Aktualisiere den Workspace.
 Prüfe, ob es neues relevantes Wissen gibt.
 ```
@@ -905,12 +910,13 @@ Ablauf:
 
 ---
 
-## `project close`
+## `session close` / `close`
 
 Beispiele:
 
 ```text
-project close
+session close
+close
 Für heute reicht es.
 Halte den Stand fest.
 ```
@@ -943,7 +949,7 @@ Ablauf:
     * wo sinnvoll weitergearbeitet werden kann.
 16. Liegt ein History-Eintrag vor (siehe Schritt 6) und ist das Projektverzeichnis ein Git-Repo: zusätzlich eine copy-paste-fertige Ein-Zeilen-Headline aus `Completed` ableiten (z. B. „Update Zielgruppenanalyse um Marktabgleich"), nicht als „Commit-Message" bezeichnen. Kein Git-Repo oder kein History-Eintrag: entfällt.
 
-`project close` beendet das Thema nicht dauerhaft — erzeugt belastbaren Wiedereinstiegspunkt.
+`close` beendet das Thema nicht dauerhaft — erzeugt belastbaren Wiedereinstiegspunkt.
 
 ---
 

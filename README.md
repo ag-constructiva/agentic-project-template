@@ -49,74 +49,30 @@ Der Agent übernimmt:
 
 ## Getting started
 
-1. Öffne diesen Ordner
+1. Neues Projekt über den Button **„Use this template"** auf [github.com/ag-constructiva/agentic-project-template](https://github.com/ag-constructiva/agentic-project-template) erzeugen — liefert ein eigenständiges Repo ohne geteilte Git-Historie. (Alternative: Ordner kopieren oder klonen — der Agent prüft das beim ersten `start` und bietet an, die Git-Anbindung ans Template zu lösen.)
 2. Optional: Erste Quellen oder Notizen unter `01_sources/` ablegen.
-3. Gib deinem Agenten den Befehl `project start` — beim ersten Mal entsteht der Projektauftrag (bei jedem weiteren Mal der Wiedereinstieg)
-4. Arbeite mit deinem Agenten, wie es dir beliebt
-5. Wenn du unterbrechen willst, gib den Befehl `project close`, dann kannst du später dort wieder ansetzen.
+3. Gib deinem Agenten den Befehl `start` — beim allerersten Mal entsteht dabei der Projektauftrag.
+4. Arbeite mit deinem Agenten, wie es dir beliebt. Steig in jede weitere Sitzung wieder mit `start` ein.
+5. Wenn du unterbrechen willst, gib den Befehl `close`, dann kannst du später dort wieder ansetzen.
 
-## Alle wichtigen Befehle
+## Wichtigste Befehle
 
-### Projekt starten
+| Befehl | Zweck |
+|---|---|
+| `start` | Sitzung beginnen — beim allerersten Mal Projekt einrichten, danach Stand zusammenfassen |
+| `project status` | Aktuellen Stand anzeigen |
+| `update` | Quellen und Arbeitsstände prüfen/aktualisieren |
+| `state save` | Zwischenstand sofort sichern |
+| `close` | Sitzung abschließen, Wiedereinstieg vorbereiten |
 
-```text
-project start
-starten
-start
-los geht's
-los
-```
-
-Der einfachste Einstieg in jede Sitzung — immer der richtige erste Befehl. Beim allerersten Start klärt der Agent gemeinsam mit dir den Projektauftrag und legt die Startdateien an. Bei jedem weiteren Einstieg fasst er den aktuellen Stand zusammen und weist auf neue, noch nicht ausgewertete Quellen hin.
-
-### Projektstand anzeigen
-
-```text
-project status
-```
-
-Auch natürliche Formulierungen funktionieren:
-
-```text
-Wo stehen wir?
-Was ist aktuell offen?
-Was sind die nächsten Schritte?
-```
-
-### Wissen und Arbeitsstände aktualisieren
-
-```text
-project update
-```
-
-Der Agent prüft neue oder veränderte Quellen, aktualisiert Analysen und dokumentiert Auswirkungen.
-
-### Arbeit für heute abschließen
-
-```text
-project close
-```
-
-Der Agent hält den aktuellen Stand, Entscheidungen, offene Fragen und nächste Schritte fest.
-
-Fertige Ergebnisse werden dabei nur vorgeschlagen. Das Kopieren nach `03_dist/` erfolgt erst nach deiner Zustimmung.
-
-### Projekt-Template aktualisieren
-
-```text
-update agentic-project-template
-```
-
-Prüft, ob für das öffentliche Template [`agentic-project-template`](https://github.com/ag-constructiva/agentic-project-template) eine neuere Version vorliegt, zeigt relevante Änderungen aus dessen Changelog und übernimmt sie erst nach deiner Zustimmung — Datei für Datei, unter Erhalt deiner lokalen Anpassungen.
+Du musst die Befehle nicht exakt verwenden. Normale Sprache reicht. Vollständige Befehlsreferenz inkl. `update agentic-project-template`: [COMMANDS.md](COMMANDS.md).
 
 ## Typischer Ablauf
 
-1. Mit `project start` beginnen — beim ersten Mal entsteht der Projektauftrag, bei jedem weiteren Mal der Wiedereinstieg.
+1. Mit `start` beginnen — beim allerersten Mal entsteht dabei der Projektauftrag.
 2. Quellen unter `01_sources/` ablegen.
 3. Ziel oder Frage formulieren.
 4. Agent analysiert und arbeitet unter `02_work/`.
 5. Zwischendurch mit `project status` den Stand prüfen.
 6. Fertiges Ergebnis prüfen und für `03_dist/` freigeben.
-7. Mit `project close` einen belastbaren Wiedereinstiegspunkt erzeugen.
-
-Du musst die Befehle nicht exakt verwenden. Normale Sprache reicht.
+7. Mit `close` einen belastbaren Wiedereinstiegspunkt erzeugen, in der nächsten Sitzung mit `start` wieder einsteigen.

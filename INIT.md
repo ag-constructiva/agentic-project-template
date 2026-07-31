@@ -1,6 +1,18 @@
 # Projekt-Ersteinrichtung — Agentenprotokoll
 
-> **Hinweis:** Diese Datei enthält ausschließlich Ablaufanweisungen für den Agenten zur Ersteinrichtung eines neuen Projekts — Ausführung nur beim allerersten `project start`, wenn `02_work/state.md` noch nicht existiert. Wird nur bei diesem Erststart gelesen. Für alle übrigen Arbeitsregeln siehe [AGENTS.md](AGENTS.md).
+> **Hinweis:** Diese Datei enthält ausschließlich Ablaufanweisungen für den Agenten zur Ersteinrichtung eines neuen Projekts — Ausführung nur beim allerersten `start`, wenn `02_work/state.md` noch nicht existiert. Wird nur bei dieser Ersteinrichtung gelesen. Für alle übrigen Arbeitsregeln siehe [AGENTS.md](AGENTS.md).
+
+## Git-Herkunft prüfen
+
+Vor Arbeitsbeginn: prüfen, ob das Projektverzeichnis noch git-technisch mit dem öffentlichen Template `agentic-project-template` verbunden ist (typischer Fall bei Ordner-Kopie oder `git clone` statt GitHubs „Use this template"-Button).
+
+1. Ist das Verzeichnis kein Git-Repo → kein Problem, weiter mit `Projektstart klären`.
+2. Ist es ein Git-Repo: `git remote -v` prüfen (zeigt ein Remote auf `ag-constructiva/agentic-project-template`?) und ersten Commit prüfen (`git log --reverse --oneline | head -1`, bekannter Template-Seed-Commit z. B. „initial commit as v1"). Trifft eines zu → Verbindung zum Template liegt vor.
+3. Liegt eine Verbindung vor, Nutzer aktiv informieren und Fix anbieten, differenziert nach Fall:
+   * **Keine projekteigenen Commits vorhanden** (Historie besteht ausschließlich aus Template-Commits): nach ausdrücklicher Zustimmung vollständigen Reset anbieten (`git remote remove origin`, `rm -rf .git`, `git init`, initialer Commit des aktuellen Stands).
+   * **Es existieren bereits projekteigene Commits** oberhalb der Template-Historie: Historie nicht blind verwerfen (Datenverlust-Risiko) — stattdessen nur Remote-Entkopplung anbieten (`git remote remove origin`, ggf. neuen eigenen Remote einrichten), Historie bleibt erhalten. Ausdrücklich auf die verbleibende geteilte Vorgeschichte hinweisen.
+   * In beiden Fällen: Aktion nur nach expliziter Nutzer-Zustimmung, keine automatische Ausführung.
+4. Ohne Zustimmung: keine Git-Operation ausführen, Hinweis unter `Next Actions` in `state.md` festhalten, sobald diese existiert.
 
 ## Projektstart klären
 
@@ -59,8 +71,9 @@ Struktur von `state.md`: siehe Abschnitt `Arbeitszustand` in [AGENTS.md](AGENTS.
 
 ## Ablauf Erststart
 
-1. Klärung mit Nutzer gemäß Abschnitt `Projektstart klären` oben (Ziel, Ergebnisse, Zielgruppe, Erfolg, Kontext und Grenzen, Ausgangslage, Startbereitschaft).
-2. Auf Antwort-Basis `02_work/project-brief.md` und `02_work/state.md` anlegen.
-3. `README.md` im Projektwurzelverzeichnis aktualisieren: konkretes Projekt beschreiben (Zweck, Zielgruppe, angestrebte Ergebnisse) statt generischer Vorlagenbeschreibung. Abschnitte zu Projektstruktur/Befehlen inhaltlich erhalten.
-4. Prüfen, ob `.template-version` existiert. Falls nicht: fragen, ob Projekt mit öffentlichem Template aktuell gehalten werden soll (Verknüpfung mit `https://github.com/ag-constructiva/agentic-project-template`). Nach Zustimmung `.template-version` anlegen — Vorgehen wie [UPDATE.md](UPDATE.md), Schritt 2b.
-5. Konkreter Vorschlag für nächsten Schritt → auf Bestätigung warten → erst danach Quellen ingestieren oder größere Arbeitsstrukturen anlegen.
+1. Git-Herkunft prüfen gemäß Abschnitt `Git-Herkunft prüfen` oben.
+2. Klärung mit Nutzer gemäß Abschnitt `Projektstart klären` oben (Ziel, Ergebnisse, Zielgruppe, Erfolg, Kontext und Grenzen, Ausgangslage, Startbereitschaft).
+3. Auf Antwort-Basis `02_work/project-brief.md` und `02_work/state.md` anlegen.
+4. `README.md` im Projektwurzelverzeichnis aktualisieren: konkretes Projekt beschreiben (Zweck, Zielgruppe, angestrebte Ergebnisse) statt generischer Vorlagenbeschreibung. Abschnitt zur Projektstruktur inhaltlich erhalten. `COMMANDS.md` bleibt unverändert — sie ist eine vom Template verwaltete Datei, kein Bestandteil der Projektanpassung.
+5. Prüfen, ob `.template-version` existiert. Falls nicht: fragen, ob Projekt mit öffentlichem Template aktuell gehalten werden soll (Verknüpfung mit `https://github.com/ag-constructiva/agentic-project-template`). Nach Zustimmung `.template-version` anlegen — Vorgehen wie [UPDATE.md](UPDATE.md), Schritt 2b.
+6. Konkreter Vorschlag für nächsten Schritt → auf Bestätigung warten → erst danach Quellen ingestieren oder größere Arbeitsstrukturen anlegen.
