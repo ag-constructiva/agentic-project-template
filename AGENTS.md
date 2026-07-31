@@ -120,6 +120,14 @@ synced: YYYY-MM-DD
 
 Nur durch Befehl `update template` (bzw. `update project-template`) o.ä. angelegt/aktualisiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
 
+### `.vault-mode`
+
+Enthält `obsidian` oder `plain` — legt fest, ob das Projekt zusätzlich als Obsidian-Vault genutzt wird. Default `plain`, wenn Datei fehlt.
+
+Bei `obsidian`: interne Verweise nutzen `[[Wikilinks]]` statt relativer Markdown-Links (siehe `Verlinkung von Arbeitsdateien`); zusätzlich existiert ein `.obsidian/`-Konfigurationsordner.
+
+Angelegt/geändert im Zuge der Ersteinrichtung ([INIT.md](INIT.md)) oder durch Befehl `set vault-mode` (siehe `User Commands`). Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
+
 ### `INIT.md`
 
 Vollständiges Ablaufprotokoll für die Ersteinrichtung eines neuen Projekts, nur für den Agenten. Nur beim allerersten `start` gelesen, wenn `02_work/state.md` noch nicht existiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
@@ -396,7 +404,10 @@ Nicht jede Datei muss alle Abschnitte enthalten. Nicht belegte Aussagen nicht al
 
 ## Verlinkung von Arbeitsdateien
 
-Verknüpfungen über relative Markdown-Links.
+Verknüpfungsstil hängt von `.vault-mode` ab:
+
+* **`plain`** (Default, keine Datei vorhanden): relative Markdown-Links, z. B. `[Dateiname](../01_sources/dateiname.md)`.
+* **`obsidian`**: `[[Wikilinks]]` für alles innerhalb des Projekts.
 
 Jede Arbeitsdatei verlinkt, soweit relevant:
 
@@ -406,8 +417,6 @@ Jede Arbeitsdatei verlinkt, soweit relevant:
 * daraus entstandene Ergebnisse unter `03_dist/`.
 
 Inhalte nicht unnötig duplizieren — kanonische Inhalte an einer Stelle pflegen, von anderen Dateien aus verlinken.
-
-Wiki-spezifische Syntax oder proprietäre Linkformate nicht vorausgesetzt.
 
 ---
 
@@ -964,3 +973,22 @@ Gibt es ein Update für das Projekt-Template?
 ```
 
 **Vor Ausführung: [UPDATE.md](UPDATE.md) vollständig lesen, Ablauf dort Schritt für Schritt folgen.** UPDATE.md enthält vollständiges Protokoll (Prüfung auf neue Version, Abstimmung mit Nutzer, Übernahme je Datei, Aktualisierung von `.template-version`) — nur bei Ausführung dieses Befehls gelesen, nicht bei anderen Commands.
+
+---
+
+## `set vault-mode <obsidian|plain>`
+
+Beispiele:
+
+```text
+set vault-mode obsidian
+Ich arbeite ab jetzt in Obsidian.
+Wechsle zu Obsidian-Modus.
+```
+
+Ablauf:
+
+1. Neuen Wert nach `.vault-mode` schreiben.
+2. Bei Wechsel zu `obsidian`: Setup-Schritte aus [INIT.md](INIT.md), Abschnitt „Obsidian-Modus klären", einmalig ausführen (`.obsidian/`-Konfiguration anlegen, `.gitignore` ergänzen).
+3. Bei Wechsel zu `plain`: bestehende `.obsidian/`-Konfiguration nicht automatisch entfernen — nur darauf hinweisen, dass Wikilinks ab jetzt nicht mehr neu angelegt werden.
+4. Bestehende Inhalte nicht rückwirkend konvertieren, außer der Nutzer verlangt es ausdrücklich — ein Moduswechsel gilt nur für neue bzw. bearbeitete Inhalte.

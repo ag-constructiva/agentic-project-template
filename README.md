@@ -55,6 +55,10 @@ Der Agent übernimmt:
 4. Arbeite mit deinem Agenten, wie es dir beliebt. Steig in jede weitere Sitzung wieder mit `start` ein.
 5. Wenn du unterbrechen willst, gib den Befehl `close`, dann kannst du später dort wieder ansetzen.
 
+### Optional: Obsidian-Vault
+
+Optional kannst du das Projekt auch als Obsidian-Vault nutzen. Der Modus wird beim ersten Start erfragt und lässt sich später mit `set vault-mode obsidian`/`set vault-mode plain` wechseln. Öffne danach einfach den Projektordner in Obsidian als Vault.
+
 ## Wichtigste Befehle
 
 | Befehl | Zweck |
@@ -73,6 +77,6 @@ Du musst die Befehle nicht exakt verwenden. Normale Sprache reicht. Vollständig
 2. Quellen unter `01_sources/` ablegen.
 3. Ziel oder Frage formulieren.
 4. Agent analysiert und arbeitet unter `02_work/`.
-5. Zwischendurch mit `status` den Stand prüfen.
-6. Fertiges Ergebnis prüfen und für `03_dist/` freigeben.
+5. Zwischendurch den aktuellen Stand mit `save` speichern oder mit `status` den Stand prüfen.
+6. Erarbeitete Ergebnisse prüfen und für `03_dist/` freigeben.
 7. Mit `close` einen belastbaren Wiedereinstiegspunkt erzeugen, in der nächsten Sitzung mit `start` wieder einsteigen.

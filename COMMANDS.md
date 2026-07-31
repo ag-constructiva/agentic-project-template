@@ -68,3 +68,13 @@ update project-template
 ```
 
 Prüft, ob für das öffentliche Template [`agentic-project-template`](https://github.com/ag-constructiva/agentic-project-template) eine neuere Version vorliegt, zeigt relevante Änderungen aus dessen Changelog und übernimmt sie erst nach deiner Zustimmung — Datei für Datei, unter Erhalt deiner lokalen Anpassungen.
+
+### Obsidian-Modus wechseln
+
+```text
+set vault-mode obsidian
+set vault-mode plain
+Wechle zu Obsidian.
+```
+
+Legt fest, ob das Projekt als Obsidian-Vault genutzt wird (Wikilinks, `.obsidian/`-Konfiguration) oder im Editor-/IDE-Modus bleibt (relative Markdown-Links). Wird beim ersten `start` ohnehin erfragt — dieser Befehl dient nur dem späteren Wechsel.
