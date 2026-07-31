@@ -76,7 +76,7 @@ Enthält interne Arbeitsstände:
 * bearbeitbare Ausgangsdateien,
 * Quellenindex und Arbeitszustand.
 
-Dateien in `02_work/` dürfen aktualisiert, umstrukturiert, zusammengeführt, bereinigt werden — relevante Begründungen, Gegenpositionen, Unsicherheiten, offene Fragen dabei nicht verlieren.
+Dateien in `02_work/` dürfen aktualisiert, umstrukturiert, zusammengeführt, bereinigt werden — relevante Begründungen, Gegenpositionen, Unsicherheiten, offene Fragen nicht verlieren.
 
 `02_work/` startet flach, ohne Themenordner. Entstehen zu einem Thema mehrere zusammengehörige Arbeitsdateien (z. B. Textinventar, Entwurf, offene Fragen zur selben Seite): thematischen Unterordner vorschlagen (z. B. `02_work/leistungen/`) — nicht vorab, erst wenn durch tatsächlich anfallende Dateien gerechtfertigt.
 
@@ -104,7 +104,7 @@ Bearbeitbare Arbeitsdateien bleiben unter `02_work/`. Distributionsfähige Ergeb
 
 Kein Ergebnis unter `03_dist/` unmittelbar nach Sichtung/Ingestion von Quellen. Vor jeder Distribution: Wissen, offene Fragen, Widersprüche, Zielgruppe, Format, Verwendungszweck mit Nutzer klären.
 
-Auch `03_dist/` startet flach. Fallen zu einem Thema mehrere zusammengehörige distributionsfähige Artefakte an (z. B. Bericht, Präsentation, Assets zum selben Ergebnis): thematischen Unterordner vorschlagen, nicht vorab anlegen. Prüfung spätestens bei `update` und `close`, nicht bei jeder einzelnen Distribution.
+Auch `03_dist/` startet flach. Fallen zu einem Thema mehrere zusammengehörige distributionsfähige Artefakte an (z. B. Bericht, Präsentation, Assets zum selben Ergebnis): thematischen Unterordner vorschlagen, nicht vorab anlegen. Prüfung spätestens bei `update` und `close`, nicht bei jeder Distribution.
 
 ### `.template-version`
 
@@ -494,7 +494,7 @@ Aktueller Zustand gepflegt in:
 
 Bei jeder Aktualisierung vollständig überschreiben, nicht ergänzen/anhängen. Überholte/erledigte Inhalte entfernen statt kumulativ stehen lassen; Historie und DRs gehören nach `02_work/history/` bzw. `02_work/decisions.md`, nicht in `state.md`.
 
-`state.md` nicht nach jeder einzelnen wesentlichen Änderung sofort schreiben. Agent merkt sich wesentliche Änderungen zunächst nur im Gespräch (Kontext), schreibt gesammelt:
+`state.md` nicht nach jeder wesentlichen Änderung sofort schreiben. Agent merkt sich wesentliche Änderungen zunächst nur im Gespräch (Kontext), schreibt gesammelt:
 
 * bei `start` (Wiedereinstieg, vor neuer Arbeit),
 * bei `update`,
@@ -627,7 +627,7 @@ Append-only:
 Struktur:
 
 ```markdown
-# Project Close — YYYY-MM-DD HH:MM
+# YYYY-MM-DD HH:MM
 
 ## Goal
 
