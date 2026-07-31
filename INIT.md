@@ -77,7 +77,7 @@ Antwort nach `.vault-mode` schreiben (`obsidian` oder `plain`). Details zur Bede
 
 Bei `obsidian` zusätzlich einrichten:
 
-* `.obsidian/`-Konfigurationsordner mit `attachmentFolderPath` auf `02_work/assets` und Excluded Files für `AGENTS.md`, `CLAUDE.md`, `INIT.md`, `UPDATE.md`, `COMMANDS.md` sowie `.gitkeep`-Dateien.
+* `.obsidian/`-Konfigurationsordner mit `attachmentFolderPath` auf `02_work/assets` und Excluded Files für `AGENTS.md`, `CLAUDE.md`, `INIT.md`, `UPDATE.md` sowie `.gitkeep`-Dateien.
 * `.gitignore` ergänzen um `.obsidian/workspace.json` und `.obsidian/workspace-mobile.json` (sitzungslokal, nicht versionieren) — geteilte Einstellungen wie `.obsidian/app.json` dürfen versioniert werden.
 
 Danach knapp mitteilen, dass der Projektordner ab jetzt direkt in Obsidian als Vault geöffnet werden kann.
@@ -89,7 +89,7 @@ Dieselben Setup-Schritte gelten auch für den späteren Befehl `set vault-mode o
 1. Git-Herkunft prüfen gemäß Abschnitt `Git-Herkunft prüfen` oben.
 2. Klärung mit Nutzer gemäß Abschnitt `Projektstart klären` oben (Ziel, Ergebnisse, Zielgruppe, Erfolg, Kontext und Grenzen, Ausgangslage, Startbereitschaft).
 3. Auf Antwort-Basis `02_work/project-brief.md` und `02_work/state.md` anlegen.
-4. `README.md` im Projektwurzelverzeichnis aktualisieren: konkretes Projekt beschreiben (Zweck, Zielgruppe, angestrebte Ergebnisse) statt generischer Vorlagenbeschreibung. Abschnitt zur Projektstruktur inhaltlich erhalten. `COMMANDS.md` bleibt unverändert — sie ist eine vom Template verwaltete Datei, kein Bestandteil der Projektanpassung.
+4. `README.md` im Projektwurzelverzeichnis aktualisieren: konkretes Projekt beschreiben (Zweck, Zielgruppe, angestrebte Ergebnisse) statt generischer Vorlagenbeschreibung. Abschnitt zur Projektstruktur inhaltlich erhalten.
 5. Obsidian-Modus klären gemäß Abschnitt `Obsidian-Modus klären` oben; `.vault-mode` schreiben, bei `obsidian` Setup durchführen.
 6. Existiert `.template-version`? Falls nicht: fragen, ob Projekt mit öffentlichem Template aktuell gehalten werden soll (Verknüpfung mit `https://github.com/ag-constructiva/agentic-project-template`). Nach Zustimmung `.template-version` anlegen — Vorgehen wie [UPDATE.md](UPDATE.md), Schritt 2b.
 7. Konkreter Vorschlag für nächsten Schritt → auf Bestätigung warten → erst danach Quellen ingestieren oder größere Arbeitsstrukturen anlegen.

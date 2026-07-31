@@ -59,7 +59,7 @@ Der Agent übernimmt:
 
 Optional kannst du das Projekt auch als Obsidian-Vault nutzen. Der Modus wird beim ersten Start erfragt und lässt sich später mit `set vault-mode obsidian`/`set vault-mode plain` wechseln. Öffne danach einfach den Projektordner in Obsidian als Vault.
 
-## Wichtigste Befehle
+## Verfügbare Befehle
 
 | Befehl | Zweck |
 |---|---|
@@ -68,8 +68,10 @@ Optional kannst du das Projekt auch als Obsidian-Vault nutzen. Der Modus wird be
 | `update` | Quellen und Arbeitsstände prüfen/aktualisieren |
 | `state save` | Zwischenstand sofort sichern |
 | `close` | Sitzung abschließen, Wiedereinstieg vorbereiten |
+| `update template` | Projekt-Template auf neue Version prüfen und aktualisieren |
+| `set vault-mode obsidian`/`plain` | Zwischen Obsidian-Vault und Editor-/IDE-Modus wechseln |
 
-Du musst die Befehle nicht exakt verwenden. Normale Sprache reicht. Vollständige Befehlsreferenz inkl. `update template`: [COMMANDS.md](COMMANDS.md).
+Du musst die Befehle nicht exakt verwenden. Normale Sprache reicht. Mehr Infos zu Ablauf und Hintergrund der einzelnen Befehle: [AGENTS.md](AGENTS.md), Abschnitt „User Commands".
 
 ## Typischer Ablauf
 

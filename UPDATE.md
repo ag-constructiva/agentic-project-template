@@ -21,7 +21,7 @@ Ablauf:
 
    a. Nutzer fragen, ob Projekt jetzt mit öffentlichem Template unter `https://github.com/ag-constructiva/agentic-project-template` verknüpft werden soll — dabei darauf hinweisen, dass ohne bekannten Ausgangsstand kein Diff möglich ist und stattdessen der jeweils **neueste Stand** der Template-Dateien direkt übernommen wird.
    b. Nach Zustimmung: aktuellen Commit-Hash des `main`-Branches über GitHub-API (`https://api.github.com/repos/ag-constructiva/agentic-project-template/commits/main`) ermitteln.
-   c. Aktuelle Fassung jeder Template-Datei (`AGENTS.md`, `CLAUDE.md`, `UPDATE.md`, `INIT.md`, `COMMANDS.md`) vom Remote-Repository (`main`-Branch) laden, mit lokaler Fassung vergleichen. Lokale, projektspezifische Anpassungen ermitteln, je Datei zusammengeführte Fassung vorschlagen (neueste Template-Inhalte + lokale Anpassungen erhalten). Änderung erst nach ausdrücklicher Bestätigung anwenden — je Datei einzeln, nicht pauschal. `README.md` ist projekteigen und wird von diesem Befehl nicht angefasst.
+   c. Aktuelle Fassung jeder Template-Datei (`AGENTS.md`, `CLAUDE.md`, `UPDATE.md`, `INIT.md`) vom Remote-Repository (`main`-Branch) laden, mit lokaler Fassung vergleichen. Lokale, projektspezifische Anpassungen ermitteln, je Datei zusammengeführte Fassung vorschlagen (neueste Template-Inhalte + lokale Anpassungen erhalten). Änderung erst nach ausdrücklicher Bestätigung anwenden — je Datei einzeln, nicht pauschal. `README.md` ist projekteigen und wird von diesem Befehl nicht angefasst.
    d. Nach Anwendung `.template-version` mit Repository, ermitteltem Commit-Hash (aus 2b) und Datum anlegen/aktualisieren.
    e. Durchgeführte Aktualisierung in `state.md` festhalten (z. B. unter `Last Work`).
    f. Ohne Zustimmung in 2a oder 2c: keine Datei verändern, `.template-version` nicht anlegen. Mögliche Verknüpfung/Aktualisierung unter `Next Actions` in `state.md` festhalten.
@@ -33,7 +33,7 @@ Ablauf:
    d. Nutzer ausdrücklich fragen, ob Änderungen übernommen werden sollen.
 4. Bei Zustimmung zur Übernahme:
 
-   a. Nur Template-Dateien (`AGENTS.md`, `CLAUDE.md`, `UPDATE.md`, `INIT.md`, `COMMANDS.md`), die laut `files[].filename` tatsächlich betroffen sind. `README.md` ist projekteigen und wird nicht übernommen.
+   a. Nur Template-Dateien (`AGENTS.md`, `CLAUDE.md`, `UPDATE.md`, `INIT.md`), die laut `files[].filename` tatsächlich betroffen sind. `README.md` ist projekteigen und wird nicht übernommen.
    b. Für jede betroffene Datei aktuelle Fassung vom Remote-Repository (`main`-Branch) laden, mit lokaler Fassung vergleichen; `files[].patch` aus Compare-Antwort als zusätzlicher Anhaltspunkt, ersetzt Abgleich mit lokaler Fassung aber nicht.
    c. Lokale, projektspezifische Anpassungen ermitteln, je Datei zusammengeführte Fassung vorschlagen (neue Template-Inhalte + lokale Anpassungen erhalten). Änderung erst nach ausdrücklicher Bestätigung anwenden — je Datei einzeln, nicht pauschal.
    d. Nach Anwendung `.template-version` mit neuem Commit-Hash (`main`-Commit aus Schritt 3a) und Datum aktualisieren.

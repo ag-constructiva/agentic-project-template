@@ -136,10 +136,6 @@ Vollständiges Ablaufprotokoll für die Ersteinrichtung eines neuen Projekts, nu
 
 Vollständiges Agenten-Ablaufprotokoll für Befehl `update template`. Nur bei Ausführung dieses Befehls gelesen. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`. Menschenlesbare Nutzungsinfos: `README.md`.
 
-### `COMMANDS.md`
-
-Vollständige, menschenlesbare Befehlsreferenz. Vom Template verwaltet, bei `update template` mitsynchronisiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`. `README.md` bleibt davon unabhängig vollständig projekteigen,  wird nicht durch dieses Kommando verändert.
-
 ---
 
 ## Quellenklassen
