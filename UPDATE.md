@@ -1,6 +1,6 @@
 # Template-Update — Agentenprotokoll
 
-> **Hinweis:** Diese Datei enthält nur technische Agenten-Anweisungen zum Befehl `update template`. Wird nur eingelesen bei Ausführung dieses Befehls. Für Nutzungsinfos: siehe [README.md](README.md); für alle übrigen Arbeitsregeln siehe [AGENTS.md](AGENTS.md).
+> **Hinweis:** Diese Datei enthält nur technische Ablaufanweisungen für den Agenten zum Befehl `update template`. Wird nur eingelesen bei Ausführung dieses Befehls. Für Nutzungsinfos: siehe [README.md](README.md); für alle übrigen Arbeitsregeln siehe [AGENTS.md](AGENTS.md).
 
 ## `update template` / `update project-template`
 
@@ -16,7 +16,7 @@ Prüft: liegt neuere Version für Template [`agentic-project-template`](https://
 
 Ablauf:
 
-1. Prüfen, ob `.template-version` im Projektwurzelverzeichnis existiert.
+1. Existiert `.template-version` im Projektwurzelverzeichnis?
 2. **Falls nicht, oder falls vorhanden aber Commit-Hash unklar/nicht auswertbar (z. B. alter Projektstand ohne bekannten Ausgangsstand):**
 
    a. Nutzer fragen, ob Projekt jetzt mit öffentlichem Template unter `https://github.com/ag-constructiva/agentic-project-template` verknüpft werden soll — dabei darauf hinweisen, dass ohne bekannten Ausgangsstand kein Diff möglich ist und stattdessen der jeweils **neueste Stand** der Template-Dateien direkt übernommen wird.

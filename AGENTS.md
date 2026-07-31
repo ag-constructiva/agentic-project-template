@@ -783,7 +783,7 @@ Lass uns anfangen.
 
 Ablauf:
 
-1. Prüfen, ob `02_work/state.md` existiert.
+1. Existiert `02_work/state.md`?
 2. **Falls nicht (Ersteinrichtung):** [INIT.md](INIT.md) vollständig lesen, Ablauf dort Schritt für Schritt folgen — nur bei dieser Ersteinrichtung gelesen, nicht bei weiterem Einstieg.
 3. **Falls `state.md` existiert (Regelfall):**
 
@@ -925,13 +925,13 @@ Ablauf:
 
 1. `state.md`, aktive Dateien, relevante Quellenreferenzen lesen.
 2. Alle seit letztem History-Eintrag relevanten Änderungen ermitteln.
-3. Prüfen, ob unfertige Arbeitsstände existieren.
-4. Prüfen, ob Entscheidungen, Annahmen, offene Fragen, Risiken korrekt dokumentiert sind.
+3. Existieren unfertige Arbeitsstände?
+4. Sind Entscheidungen, Annahmen, offene Fragen, Risiken korrekt dokumentiert?
 5. `state.md` vollständig aktualisieren — alle Felder gemäß Struktur unter `Arbeitszustand`.
 6. Neuer History-Eintrag unter `02_work/history/YYYY-MM-DD-HHMM.md` nur bei substanziellem Fortschritt seit letztem Eintrag (siehe `Historie`). Sonst kein Eintrag; Nutzer knapp informieren.
 7. Quellenstand prüfen: inventarisiert, freigegeben, ingestiert, teilweise ingestiert, zurückgestellt oder offen.
 8. Prüfen: relevante Quellen nicht ingestiert oder wesentliche Fragen/Widersprüche offen?
-9. Erst danach prüfen, ob distributionsfähige Ergebnisse unter `02_work/` liegen.
+9. Erst danach: liegen distributionsfähige Ergebnisse unter `02_work/`?
 10. Distribution sinnvoll: Nutzer konkrete Zielartefakte, Formate, Varianten vorschlagen.
 11. Erst nach dieser Abstimmung eindeutig distributionsfähige Ergebnisse benennen, Kopie nach `03_dist/` vorschlagen.
 12. Keine Datei ohne ausdrückliche Nutzer-Zustimmung kopieren oder überschreiben.
