@@ -1,10 +1,19 @@
 # Wissensprojekt
 
-Dieses Projekt ist eine Arbeitsvorlage für umfangreichere Wissensarbeit mit LLMs und Agenten.
+Dieses Projekt ist eine dateibasierte Workbench für umfangreichere Wissensarbeit mit LLMs und Agenten.
 
-Es hilft dir dabei, aus Quellen und vorhandenem Kontext schrittweise belastbare Arbeitsergebnisse und daraus fertige, nutzbare Ergebnisse für einen konkreten Zweck zu entwickeln.
+Sie hilft dir dabei, viele heterogene, teilweise widersprüchliche und unterschiedlich vertrauenswürdige Quellen kontrolliert in einen belastbaren Arbeitskontext zu überführen. Daraus entwickelst du schrittweise Arbeitsergebnisse und schließlich nutzbare Ergebnisse für einen konkreten Zweck.
 
-Besonders sinnvoll ist diese Struktur, wenn du:
+Der grundlegende Ablauf ist:
+
+```text
+Quellen → Bewertung und Metadaten → kontrollierte Ingestion
+→ verdichteter Wissensstand → Arbeitsprozess → nutzbare Ergebnisse
+```
+
+Der Unterschied zu einem gewöhnlichen Chat- oder Projektordner liegt nicht nur darin, dass Dateien dauerhaft vorliegen. Herkunft, Auswahl und Vertrauenswürdigkeit der Quellen bleiben sichtbar. Heterogene, widersprüchliche oder unvollständige Informationen werden nicht unkontrolliert vermischt. Fakten, Interpretationen, Annahmen, Entscheidungen und offene Fragen bleiben unterscheidbar. So kann der Arbeitskontext über Sitzungen, Agenten und Bearbeitungsschritte hinweg nachvollziehbar fortgeführt werden.
+
+Besonders sinnvoll ist diese Workbench, wenn du:
 
 - mit mehreren oder umfangreichen Quellen arbeitest,
 - Zwischenergebnisse später weiterverwenden möchtest,
@@ -20,13 +29,21 @@ Damit der Agent sinnvoll arbeiten kann, beschreibst du zu Beginn, worum es in de
 
 ```text
 01_sources/   Unveränderte Quellen
-02_work/      Analysen, Entwürfe und Arbeitsstände
-03_dist/      Fertige, freigegebene Ergebnisse
+02_context/   Verdichteter, wiederverwendbarer Wissenskontext
+03_work/      Laufende Fragen, Analysen und Projekte
+04_dist/      Fertige, freigegebene Ergebnisse zur Übergabe
 ```
+
+| Ordner | Zweck |
+|---|---|
+| `01_sources/` | Unveränderte Primärquellen |
+| `02_context/` | Verdichteter, wiederverwendbarer Wissenskontext |
+| `03_work/` | Laufende Fragen, Analysen und Projekte |
+| `04_dist/` | Freigegebene Ergebnisse zur Übergabe |
 
 Quellen unter `01_sources/` werden niemals verändert.
 
-Arbeitsstände entstehen unter `02_work/`. Fertige Ergebnisse werden erst nach deiner Zustimmung nach `03_dist/` kopiert.
+Der verdichtete Wissenskontext entsteht unter `02_context/`. Laufende Arbeiten entstehen unter `03_work/`. Fertige Ergebnisse werden erst nach deiner Zustimmung nach `04_dist/` kopiert.
 
 ## So arbeitest du damit
 
@@ -44,7 +61,7 @@ Der Agent übernimmt:
 * Wissen strukturieren und verdichten,
 * Annahmen, Interpretationen und Fakten trennen,
 * Widersprüche und offene Fragen dokumentieren,
-* Arbeitsstände unter `02_work/` pflegen,
+* Kontext unter `02_context/` und Arbeitsstände unter `03_work/` pflegen,
 * distributionsfähige Ergebnisse vorschlagen.
 
 ## Getting started
@@ -78,7 +95,7 @@ Du musst die Befehle nicht exakt verwenden. Normale Sprache reicht. Mehr Infos z
 1. Mit `start` beginnen — beim allerersten Mal entsteht dabei der Projektauftrag.
 2. Quellen unter `01_sources/` ablegen.
 3. Ziel oder Frage formulieren.
-4. Agent analysiert und arbeitet unter `02_work/`.
+4. Agent verdichtet Wissen unter `02_context/` und arbeitet unter `03_work/`.
 5. Zwischendurch den aktuellen Stand mit `save` speichern oder mit `status` den Stand prüfen.
-6. Erarbeitete Ergebnisse prüfen und für `03_dist/` freigeben.
+6. Erarbeitete Ergebnisse prüfen und für `04_dist/` freigeben.
 7. Mit `close` einen belastbaren Wiedereinstiegspunkt erzeugen, in der nächsten Sitzung mit `start` wieder einsteigen.

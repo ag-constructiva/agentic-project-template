@@ -40,4 +40,17 @@ Ablauf:
    e. Durchgeführte Aktualisierung in `state.md` festhalten (z. B. unter `Last Work`); bei wesentlichen strukturellen Auswirkungen zusätzlich ADR unter `decisions.md` anlegen.
 5. Ohne Nutzer-Zustimmung in Schritt 3d oder 4c: keine Datei verändern. Mögliche Aktualisierung stattdessen unter `Next Actions` in `state.md` festhalten.
 6. Kein Netzwerkzugriff auf Remote-Repository möglich: Agent teilt dies mit, erfindet keinen Vergleichsstand.
-7. Dateien unter `01_sources/`, `02_work/` (außer `state.md`/`decisions.md` gemäß Schritt 4e) und `03_dist/` werden durch diesen Befehl niemals verändert.
+7. Dateien unter `01_sources/`, `02_context/`, `03_work/` und `04_dist/` werden durch diesen Befehl niemals verändert.
+
+## Migration älterer Projekte
+
+Gilt für Projekte mit `.template-version` und `synced` vor `2026-09-01`.
+
+| Alt | Neu | Umgang |
+|---|---|---|
+| `01_sources/` | `01_sources/` | unverändert |
+| `02_work/source-index.md`, Wissensstand | `02_context/` | bewusst verschieben und Links prüfen |
+| übrige `02_work/`-Dateien | `03_work/` | bewusst verschieben; Themen ggf. in Unterordner legen |
+| `03_dist/` | `04_dist/` | bewusst umbenennen oder kopieren; externe Links prüfen |
+
+Migration nicht automatisch ausführen. Vorher lokale Links, Skripte und aktive Dateien prüfen; `01_sources/` nie verändern. Danach `.template-version` auf den neuen Template-Stand aktualisieren.

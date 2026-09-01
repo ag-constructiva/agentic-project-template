@@ -8,13 +8,13 @@ Dieses Wissensprojekt erstellt Ergebnisse aus Wissensarbeit.
 
 ## Arbeitsweise
 
-Quellen, Arbeitsstände und fertige Ergebnisse strikt trennen.
+Quellen, Kontext, laufende Arbeit und fertige Ergebnisse strikt trennen.
 
 Maximen:
 
 1. **Quellen werden niemals verändert.**
 2. **Quellen werden zuerst inventarisiert, erst nach Nutzer-Auswahl ingestiert.**
-3. **Wissensarbeit entsteht zuerst unter `02_work/`; Distribution nach `03_dist/` erst nach gemeinsamer Klärung.**
+3. **Wissenskontext entsteht unter `02_context/`; laufende Arbeit unter `03_work/`; Distribution nach `04_dist/` erst nach gemeinsamer Klärung.**
 4. **Fertige Ergebnisse sind eigenständig verständlich und nutzbar.**
 5. **Belegte Aussagen, Interpretationen, Annahmen und Entscheidungen unterscheidbar dokumentieren.**
 6. **Der aktuelle Arbeitsstand bleibt jederzeit wiederaufnehmbar** — Pausieren/Fortsetzen darf kein relevantes Wissen, keine Entscheidung, keine offene Frage kosten.
@@ -29,8 +29,8 @@ Bei Widersprüchen:
 2. Explizite aktuelle Benutzeranweisung
 3. Unveränderlichkeit der Dateien unter `01_sources/`
 4. Dieses Briefing
-5. Weiterhin gültige Entscheidungen in `02_work/state.md`
-6. Bestehende Inhalte unter `02_work/`
+5. Weiterhin gültige Entscheidungen in `03_work/state.md`
+6. Bestehende Inhalte unter `02_context/` und `03_work/`
 7. Selbstständige Annahmen des Agenten
 
 Neue Benutzeranweisung darf frühere Entscheidungen ersetzen — Änderung in `state.md` unter `Decisions` dokumentieren.
@@ -41,8 +41,9 @@ Neue Benutzeranweisung darf frühere Entscheidungen ersetzen — Änderung in `s
 
 ```text
 01_sources/
-02_work/
-03_dist/
+02_context/
+03_work/
+04_dist/
 ```
 
 ### `01_sources/`
@@ -61,30 +62,27 @@ werden.
 
 Nur bei ausdrücklichem Nutzerwunsch oder ausdrücklicher Bereitstellung als Projektquelle: neue Dateien unter `01_sources/` ablegen.
 
-### `02_work/`
+### `02_context/`
 
-Enthält interne Arbeitsstände:
+Enthält den aktuellen, wiederverwendbaren Wissenskontext:
 
-* Analysen,
-* Extraktionen,
-* Verdichtungen,
-* Entwürfe,
-* Varianten,
-* Hypothesen,
-* Zwischenstände,
-* temporäre Hilfsdateien,
-* bearbeitbare Ausgangsdateien,
-* Quellenindex und Arbeitszustand.
+* Quellenindex,
+* belegte Erkenntnisse,
+* Interpretationen und Annahmen,
+* fachliche Entscheidungen,
+* offene Fragen und Widersprüche.
 
-Dateien in `02_work/` dürfen aktualisiert, umstrukturiert, zusammengeführt, bereinigt werden — relevante Begründungen, Gegenpositionen, Unsicherheiten, offene Fragen nicht verlieren.
+Kontext beantwortet: Was wissen oder vermuten wir derzeit über das Thema?
 
-`02_work/` startet flach, ohne Themenordner. Entstehen zu einem Thema mehrere zusammengehörige Arbeitsdateien (z. B. Textinventar, Entwurf, offene Fragen zur selben Seite): thematischen Unterordner vorschlagen (z. B. `02_work/leistungen/`) — nicht vorab, erst wenn durch tatsächlich anfallende Dateien gerechtfertigt.
+### `03_work/`
 
-Prüfung nicht laufend bei jeder neuen Datei — spätestens bei `update` und `close`.
+Enthält laufende Fragen, Analysen, Entwürfe und Projekte auf Basis des Kontexts. `state.md`, `decisions.md`, `archive/`, `assets/` und `build/` liegen hier; weitere Themenordner nur bei tatsächlichem Bedarf.
 
-Dateien nicht automatisch löschen. Inaktive Arbeitsstände: nach `02_work/archive/` verschieben.
+Arbeit beantwortet: Welche Frage oder welches Ergebnis bearbeiten wir gerade?
 
-### `03_dist/`
+Dateien in `02_context/` und `03_work/` dürfen aktualisiert oder umstrukturiert werden. Relevante Begründungen, Gegenpositionen, Unsicherheiten und offene Fragen nicht verlieren. Prüfung spätestens bei `update` und `close`; Dateien nicht automatisch löschen, inaktive Arbeit nach `03_work/archive/` verschieben.
+
+### `04_dist/`
 
 Enthält distributionsfähige Ergebnisse:
 
@@ -96,15 +94,15 @@ Enthält distributionsfähige Ergebnisse:
 * Berichte,
 * andere eigenständig nutzbare Artefakte.
 
-Ergebnis unter `03_dist/` muss ohne Zugriff auf `01_sources/` und `02_work/` verständlich und nutzbar sein.
+Ergebnis unter `04_dist/` muss ohne Zugriff auf `01_sources/`, `02_context/` und `03_work/` verständlich und nutzbar sein.
 
 Erforderliche Quellenangaben bleiben Bestandteil des Ergebnisses. Öffentliche, zugängliche Referenzen vor lokalen Projektpfaden.
 
-Bearbeitbare Arbeitsdateien bleiben unter `02_work/`. Distributionsfähige Ergebnisse nach `03_dist/` **kopieren**, nicht verschieben — verhindert gebrochene Links, erhält Arbeitskontext.
+Bearbeitbare Arbeitsdateien bleiben unter `03_work/`. Distributionsfähige Ergebnisse nach `04_dist/` **kopieren**, nicht verschieben — so bleiben Arbeitskontext und Übergabestand getrennt.
 
-Kein Ergebnis unter `03_dist/` unmittelbar nach Sichtung/Ingestion von Quellen. Vor jeder Distribution: Wissen, offene Fragen, Widersprüche, Zielgruppe, Format, Verwendungszweck mit Nutzer klären.
+Kein Ergebnis unter `04_dist/` unmittelbar nach Sichtung/Ingestion von Quellen. Vor jeder Distribution: Kontext, offene Fragen, Widersprüche, Zielgruppe, Format und Verwendungszweck mit Nutzer klären.
 
-Auch `03_dist/` startet flach. Fallen zu einem Thema mehrere zusammengehörige distributionsfähige Artefakte an (z. B. Bericht, Präsentation, Assets zum selben Ergebnis): thematischen Unterordner vorschlagen, nicht vorab anlegen. Prüfung spätestens bei `update` und `close`, nicht bei jeder Distribution.
+Auch `04_dist/` startet flach. Fallen zu einem Thema mehrere zusammengehörige Artefakte an, thematischen Unterordner vorschlagen, nicht vorab anlegen.
 
 ### `.template-version`
 
@@ -118,7 +116,7 @@ commit: <commit-hash>
 synced: YYYY-MM-DD
 ```
 
-Nur durch Befehl `update template` (bzw. `update project-template`) o.ä. angelegt/aktualisiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
+Nur durch Befehl `update template` (bzw. `update project-template`) o.ä. angelegt/aktualisiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_context/`, `03_work/` oder `04_dist/`.
 
 ### `.vault-mode`
 
@@ -126,15 +124,15 @@ Enthält `obsidian` oder `plain` — legt fest, ob das Projekt zusätzlich als O
 
 Bei `obsidian`: interne Verweise nutzen `[[Wikilinks]]` statt relativer Markdown-Links (siehe `Verlinkung von Arbeitsdateien`); zusätzlich existiert ein `.obsidian/`-Konfigurationsordner.
 
-Angelegt/geändert im Zuge der Ersteinrichtung ([INIT.md](INIT.md)) oder durch Befehl `set vault-mode` (siehe `User Commands`). Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
+Angelegt/geändert im Zuge der Ersteinrichtung ([INIT.md](INIT.md)) oder durch Befehl `set vault-mode` (siehe `User Commands`). Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_context/`, `03_work/` oder `04_dist/`.
 
 ### `INIT.md`
 
-Vollständiges Ablaufprotokoll für die Ersteinrichtung eines neuen Projekts, nur für den Agenten. Nur beim allerersten `start` gelesen, wenn `02_work/state.md` noch nicht existiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`.
+Vollständiges Ablaufprotokoll für die Ersteinrichtung eines neuen Projekts, nur für den Agenten. Nur beim allerersten `start` gelesen, wenn `03_work/state.md` noch nicht existiert. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_context/`, `03_work/` oder `04_dist/`.
 
 ### `UPDATE.md`
 
-Vollständiges Agenten-Ablaufprotokoll für Befehl `update template`. Nur bei Ausführung dieses Befehls gelesen. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_work/` oder `03_dist/`. Menschenlesbare Nutzungsinfos: `README.md`.
+Vollständiges Agenten-Ablaufprotokoll für Befehl `update template`. Nur bei Ausführung dieses Befehls gelesen. Kein Bestandteil der Wissensarbeit; nicht unter `01_sources/`, `02_context/`, `03_work/` oder `04_dist/`. Menschenlesbare Nutzungsinfos: `README.md`.
 
 ---
 
@@ -175,7 +173,7 @@ Neue externe Quellen nicht automatisch unter `01_sources/` speichern.
 Zunächst dokumentiert in:
 
 ```text
-02_work/source-candidates.md
+02_context/source-candidates.md
 ```
 
 Eintrag enthält mindestens:
@@ -205,13 +203,13 @@ Erkennung:
 
 Inhaltliche Annotation hat Vorrang vor Dateiname.
 
-Erkannte Einstufung: im Quellenindex (`02_work/source-index.md`) festhalten, bei Gewichtung von `Belegte Erkenntnisse`/`Interpretationen` berücksichtigen. Fehlt Einstufung: Quelle gilt als nicht eingestuft — nicht gleichbedeutend mit `MEDIUM`.
+Erkannte Einstufung: im Quellenindex (`02_context/source-index.md`) festhalten, bei Gewichtung von `Belegte Erkenntnisse`/`Interpretationen` berücksichtigen. Fehlt Einstufung: Quelle gilt als nicht eingestuft — nicht gleichbedeutend mit `MEDIUM`.
 
 #### Konsequenzen der Einstufung
 
 * **HIGH**: Aussagen gelten als belegte Grundlage. Agent baut ohne Rückfrage darauf auf.
 * **MEDIUM**: Aussagen nutzbar. Agent weist darauf hin, schlägt konkret vor: weitere Quellen beisteuern oder externe Recherche zur Bestätigung (nur nach Regeln unter `Externe Quellen`, ausdrückliche Anweisung erforderlich).
-* **LOW**: Jedes Arbeitsergebnis unter `02_work/`, das darauf beruht, erhält sichtbaren Warnhinweis (z. B. „> Warnhinweis: Aussage beruht auf einer Quelle mit geringer Glaubwürdigkeit"). Zusätzlich: offene Aufgabe, weitere Evidenz zu beschaffen — unter `Offene Fragen` in der Arbeitsdatei sowie unter `Open Questions`/`Next Actions` in `state.md`. Bleibt bestehen, bis Nutzer ausdrücklich anders festlegt (z. B. Quelle trotz geringer Glaubwürdigkeit als ausreichend akzeptiert).
+* **LOW**: Jedes darauf beruhende Ergebnis erhält einen sichtbaren Warnhinweis. Weitere Evidenz als offene Aufgabe in `02_context/` bzw. im betroffenen Work-Item und in `03_work/state.md` festhalten.
 
 Fehlt Einstufung: keine dieser Konsequenzen automatisch.
 
@@ -260,9 +258,9 @@ Im Quellenindex mindestens einer dieser Zustände je Quelle:
 
 Bei teilweiser Ingestion: dokumentieren, welche Seiten/Abschnitte/Bereiche/Daten berücksichtigt wurden.
 
-### 4. Wissen unter `02_work/` aufbereiten
+### 4. Wissen unter `02_context/` aufbereiten
 
-Ingestierte Inhalte zunächst nur unter `02_work/` verarbeiten. Entstehen:
+Ingestierte Inhalte zunächst unter `02_context/` verarbeiten. Entstehen:
 
 * Extraktionen und strukturierte Notizen,
 * belegte Erkenntnisse,
@@ -288,7 +286,7 @@ Eindeutige Punkte selbstständig lösen. Verbleibende Entscheidungen Nutzer konk
 
 ### 6. Distribution gemeinsam festlegen
 
-Erst nach Klärung konkrete Artefakte für `03_dist/` vorschlagen, z. B.:
+Erst nach Klärung konkrete Artefakte für `04_dist/` vorschlagen, z. B.:
 
 * Ziel und Zweck des Ergebnisses,
 * Zielgruppe,
@@ -297,13 +295,13 @@ Erst nach Klärung konkrete Artefakte für `03_dist/` vorschlagen, z. B.:
 * Varianten oder Priorisierung,
 * Dateiname und Zielformat.
 
-Für Erstellung, Kopie oder Aktualisierung unter `03_dist/`: Zustimmungspflicht aus `Artefakte und Reifegrad`.
+Für Erstellung, Kopie oder Aktualisierung unter `04_dist/`: Zustimmungspflicht aus `Artefakte und Reifegrad`.
 
 ---
 
 ## Quellenreferenzen
 
-Arbeitsdateien unter `02_work/` müssen verwendete Quellen nachvollziehbar referenzieren.
+Arbeitsdateien unter `02_context/` und `03_work/` müssen verwendete Quellen nachvollziehbar referenzieren.
 
 ### Lokale Dateien
 
@@ -322,6 +320,8 @@ Ohne präzisere Fundstelle:
 ```markdown
 Quelle: [Dateiname](../01_sources/dateiname.ext)
 ```
+
+Aus `03_work/<thema>/` führt der Link entsprechend über `../../01_sources/`.
 
 ### Webquellen
 
@@ -410,7 +410,7 @@ Jede Arbeitsdatei verlinkt, soweit relevant:
 * ihre Primärquellen,
 * verwendete externe Quellen,
 * verwandte Arbeitsdateien,
-* daraus entstandene Ergebnisse unter `03_dist/`.
+* daraus entstandene Ergebnisse unter `04_dist/`.
 
 Inhalte nicht unnötig duplizieren — kanonische Inhalte an einer Stelle pflegen, von anderen Dateien aus verlinken.
 
@@ -428,10 +428,10 @@ Dateinamen:
 Beispiele:
 
 ```text
-02_work/zielgruppenanalyse.md
-02_work/zielgruppenanalyse-alternativen.md
-02_work/quellenbewertung-ki-brownfield.md
-03_dist/positionierungskonzept-2026-07-22.md
+03_work/zielgruppenanalyse/analyse.md
+03_work/zielgruppenanalyse/alternativen.md
+02_context/quellenbewertung-ki-brownfield.md
+04_dist/positionierungskonzept-2026-07-22.md
 ```
 
 Aktueller Stand einer Arbeitsdatei: grundsätzlich in derselben Datei pflegen.
@@ -445,7 +445,7 @@ Varianten nur trennen, wenn bewusst parallel bestehend.
 Quellenstand gepflegt in:
 
 ```text
-02_work/source-index.md
+02_context/source-index.md
 ```
 
 Empfohlene Struktur:
@@ -492,12 +492,12 @@ Englischsprachige Fachbegriffe, Eigennamen, Zitate im Original übernehmen, wenn
 Aktueller Zustand gepflegt in:
 
 ```text
-02_work/state.md
+03_work/state.md
 ```
 
 `state.md` ist kein chronologisches Protokoll — nur aktuell relevanter Stand.
 
-Bei jeder Aktualisierung vollständig überschreiben, nicht ergänzen/anhängen. Überholte/erledigte Inhalte entfernen statt kumulativ stehen lassen; Historie und DRs gehören nach `02_work/history/` bzw. `02_work/decisions.md`, nicht in `state.md`.
+Bei jeder Aktualisierung vollständig überschreiben, nicht ergänzen/anhängen. Überholtes entfernen; Historie und DRs gehören nach `03_work/history/` bzw. `03_work/decisions.md`, nicht in `state.md`.
 
 `state.md` nicht nach jeder wesentlichen Änderung sofort schreiben. Agent merkt sich wesentliche Änderungen zunächst nur im Gespräch (Kontext), schreibt gesammelt:
 
@@ -540,7 +540,7 @@ Was zuletzt konkret bearbeitet wurde.
 
 ## Decisions
 
-- Aktuell gültige Entscheidungen mit Verweis auf den zugehörigen DR unter `02_work/decisions.md`
+- Aktuell gültige Entscheidungen mit Verweis auf den zugehörigen DR unter `03_work/decisions.md`
 
 ## Open Questions
 
@@ -557,7 +557,7 @@ Was zuletzt konkret bearbeitet wurde.
 - Bekannte Widersprüche, Unsicherheiten oder Risiken
 ```
 
-Überholte Entscheidungen nicht kommentarlos entfernen — durch aktuell gültige ersetzen, zum zugehörigen Decision Record referenzieren. `state.md` enthält nur gegenwärtig gültige Entscheidung; dauerhafte Entscheidungshistorie liegt in `02_work/decisions.md`.
+Überholte Entscheidungen nicht kommentarlos entfernen — durch aktuelle ersetzen und den DR referenzieren. `state.md` enthält nur aktuell gültige Entscheidungen; die Historie liegt in `03_work/decisions.md`.
 
 ---
 
@@ -566,10 +566,10 @@ Was zuletzt konkret bearbeitet wurde.
 Dauerhafte Entscheidungen als append-only DRs dokumentiert unter:
 
 ```text
-02_work/decisions.md
+03_work/decisions.md
 ```
 
-DRs halten fest, warum eine Entscheidung getroffen wurde. Ersetzen weder `state.md` noch `02_work/history/`.
+DRs halten fest, warum eine Entscheidung getroffen wurde. Ersetzen weder `state.md` noch `03_work/history/`.
 
 Abgrenzung:
 
@@ -584,7 +584,7 @@ DR erforderlich, wenn Entscheidung wesentliche Auswirkungen hat auf:
 * Interpretation, Modell oder zentrale Annahmen,
 * Struktur zentraler Arbeitsartefakte,
 * Zielgruppe, Format oder Inhalt einer Distribution,
-* Übergang eines Artefakts nach `03_dist/`,
+* Übergang eines Artefakts nach `04_dist/`,
 * irreversible oder schwer rückgängig zu machende Schritte.
 
 Kleine, lokale, leicht reversible Arbeitsentscheidungen: kein DR nötig — dokumentierbar in Arbeitsdatei oder `state.md`.
@@ -620,7 +620,7 @@ Reine Änderungen an `Active Files`/`Open Questions` lösen keinen Eintrag aus �
 Eintrag wiederholt unveränderte Abschnitte nicht vollständig. Unverändert seit letztem Eintrag (`Goal`, `Open Questions` o. ä.) → darauf verweisen (z. B. „Unverändert gegenüber [vorheriger Eintrag](2026-07-22-1620.md)"), nicht erneut ausschreiben.
 
 ```text
-02_work/history/YYYY-MM-DD-HHMM.md
+03_work/history/YYYY-MM-DD-HHMM.md
 ```
 
 Append-only:
@@ -658,7 +658,7 @@ Historie hält nur wesentliche Änderungen fest — kein vollständiges Gespräc
 Verwende:
 
 ```text
-02_work/assets/
+03_work/assets/
 ```
 
 für bearbeitete Bilder, Diagramme, andere interne Medien.
@@ -666,7 +666,7 @@ für bearbeitete Bilder, Diagramme, andere interne Medien.
 Verwende:
 
 ```text
-02_work/build/
+03_work/build/
 ```
 
 für:
@@ -676,7 +676,7 @@ für:
 * Render-Zwischenstände,
 * generierte Hilfsdateien.
 
-Bearbeitbare Quelldateien bleiben unter `02_work/`. Exportierte Endformate nach `03_dist/` kopiert.
+Bearbeitbare Quelldateien bleiben unter `03_work/`. Exportierte Endformate nach `04_dist/` kopiert.
 
 Temporäre Build-Dateien: bereinigen, wenn reproduzierbar und nicht mehr erforderlich. Primärquellen und relevante Arbeitsstände nicht löschen.
 
@@ -703,7 +703,7 @@ Bei einem Widerspruch:
 Ungelöster Widerspruch festgehalten:
 
 * in betroffener Arbeitsdatei,
-* in `02_work/state.md` unter `Risks and Conflicts`,
+* in `03_work/state.md` unter `Risks and Conflicts`,
 * ggf. unter `Open Questions`.
 
 ---
@@ -747,21 +747,21 @@ Ergebnis distributionsreif, wenn:
 * sprachlich und strukturell geprüft,
 * im vorgesehenen Zielformat nutzbar.
 
-Bei eindeutigem Reifegrad: zunächst konkrete Distributionsoptionen vorschlagen. Erst nach Auswahl/Bestätigung durch Nutzer: Kopie nach `03_dist/` vorschlagen.
+Bei eindeutigem Reifegrad: zunächst konkrete Distributionsoptionen vorschlagen. Erst nach Auswahl/Bestätigung: Kopie nach `04_dist/` vorschlagen.
 
 Vor dem Kopieren: ausdrückliche Nutzer-Zustimmung erforderlich.
 
 Ohne Zustimmung:
 
-* Ergebnis bleibt unter `02_work/`,
-* keine Datei unter `03_dist/` erstellt oder überschrieben,
+* Ergebnis bleibt unter `03_work/`,
+* keine Datei unter `04_dist/` erstellt oder überschrieben,
 * mögliche Distribution unter `Next Actions` in `state.md` festgehalten.
 
-Bei unklarem Reifegrad: Ergebnis bleibt unter `02_work/`, als offener Punkt dokumentiert.
+Bei unklarem Reifegrad: Ergebnis bleibt unter `03_work/`, als offener Punkt dokumentiert.
 
-Bearbeitbare Arbeitsdateien nie automatisch nach `03_dist/` verschoben.
+Bearbeitbare Arbeitsdateien nie automatisch nach `04_dist/` verschoben.
 
-Bestehende Dateien unter `03_dist/` nicht ohne ausdrückliche Zustimmung überschreiben. Bei Aktualisierung eine Variante vorschlagen:
+Bestehende Dateien unter `04_dist/` nicht ohne ausdrückliche Zustimmung überschreiben. Bei Aktualisierung eine Variante vorschlagen:
 
 * bestehende Datei ersetzen,
 * datierte neue Version erzeugen.
@@ -788,15 +788,15 @@ Lass uns anfangen.
 
 Ablauf:
 
-1. Existiert `02_work/state.md`?
+1. Existiert `03_work/state.md`?
 2. **Falls nicht (Ersteinrichtung):** [INIT.md](INIT.md) vollständig lesen, Ablauf dort Schritt für Schritt folgen — nur bei dieser Ersteinrichtung gelesen, nicht bei weiterem Einstieg.
 3. **Falls `state.md` existiert (Regelfall):**
 
    a. `state.md` lesen, insbesondere `Current Goal`, `Last Work`, `Open Questions`, `Next Actions`.
-   b. `01_sources/` kurz gegen `source-index.md` auf neue/veränderte, nicht inventarisierte Dateien prüfen — reine Dateiprüfung, keine inhaltliche Auswertung.
+   b. `01_sources/` kurz gegen `02_context/source-index.md` auf neue/veränderte, nicht inventarisierte Dateien prüfen — reine Dateiprüfung, keine inhaltliche Auswertung.
    c. Neue/veränderte Quellen erkannt: Nutzer knapp hinweisen, fragen ob `update` sinnvoll.
    d. Keine neuen Quellen: Ziel, letzten Arbeitsstand, sinnvolle nächste Schritte knapp zusammenfassen, ohne automatisch `update` anzustoßen.
-4. Keine Dateien unter `01_sources/`, `02_work/decisions.md` oder `03_dist/` verändern, außer im Zuge der Ersteinrichtung gemäß Schritt 2.
+4. Keine Dateien unter `01_sources/`, `02_context/`, `03_work/` oder `04_dist/` verändern, außer im Zuge der Ersteinrichtung gemäß Schritt 2.
 
 ---
 
@@ -812,7 +812,7 @@ Was ist hier der aktuelle Stand?
 
 Ablauf:
 
-1. `02_work/state.md` lesen.
+1. `03_work/state.md` lesen.
 2. Unter `Active Files` genannte Dateien prüfen.
 3. Relevante Einträge im Quellenindex prüfen.
 4. Weitere Dateien nur lesen:
@@ -846,7 +846,7 @@ Halte den Zwischenstand fest.
 Schreib den State jetzt.
 ```
 
-Schreibt im Gespräch gehaltenen Zwischenstand sofort nach `02_work/state.md`, ohne übrige Schritte von `close` — kein History-Eintrag, keine erneute Quellenprüfung, keine Distributionsprüfung.
+Schreibt im Gespräch gehaltenen Zwischenstand sofort nach `03_work/state.md`, ohne übrige Schritte von `close` — kein History-Eintrag, keine erneute Quellenprüfung, keine Distributionsprüfung.
 
 Ablauf:
 
@@ -871,20 +871,20 @@ Prüfe, ob es neues relevantes Wissen gibt.
 
 Ablauf:
 
-1. `state.md` und `source-index.md` lesen.
+1. `03_work/state.md` und `02_context/source-index.md` lesen.
 2. Quellen unter `01_sources/` zunächst nur prüfen auf:
 
    * neue Dateien,
    * veränderte Dateien,
    * bisher nicht inventarisierte Dateien,
    * aktuellen Ingestion-Status.
-3. Quelleninventar in `source-index.md` aktualisieren, ohne neue Quellen automatisch vollständig zu ingestieren.
+3. Quelleninventar in `02_context/source-index.md` aktualisieren, ohne neue Quellen automatisch vollständig zu ingestieren.
 4. Nutzer berichten, welche Quellen vorhanden sind, priorisierte Ingestion-Auswahl vorschlagen.
 5. Nur freigegebene oder durch aktuelle Benutzeranweisung eindeutig beauftragte Quellen auswerten.
 6. Für jede bearbeitete Quelle Status/ingestierten Umfang im Quellenindex dokumentieren.
 7. Bestehende Quellenreferenzen prüfen.
 8. Externe Recherche nur nach Regeln unter `Externe Quellen`.
-9. Neues/verändertes Wissen zunächst unter `02_work/` aufbereiten.
+9. Neues/verändertes Wissen zunächst unter `02_context/` aufbereiten; laufende Analysen unter `03_work/`.
 10. Überholte Inhalte und Verweise ergänzen, korrigieren, entfernen.
 11. Dateien unter `01_sources/` niemals verändern oder löschen.
 12. Neues Wissen vergleichen mit:
@@ -902,8 +902,8 @@ Ablauf:
     * mögliche Auswirkungen,
     * noch nicht ingestierte relevante Quellen.
 14. Eindeutige offene Fragen/Widersprüche lösen. Verbleibende fachliche/geschäftliche Entscheidungen Nutzer mit konkretem Vorschlag vorlegen.
-15. `state.md` aktualisieren.
-16. `03_dist/` bleibt unverändert, bis Quellenauswahl, offene Punkte, Ergebnisform mit Nutzer abgestimmt.
+15. `03_work/state.md` aktualisieren.
+16. `04_dist/` bleibt unverändert, bis Quellenauswahl, offene Punkte und Ergebnisform mit Nutzer abgestimmt.
 17. Erst danach geeignete Distributionsartefakte vorschlagen.
 18. Knapp berichten:
 
@@ -928,17 +928,17 @@ Halte den Stand fest.
 
 Ablauf:
 
-1. `state.md`, aktive Dateien, relevante Quellenreferenzen lesen.
+1. `03_work/state.md`, aktive Dateien, relevante Quellenreferenzen lesen.
 2. Alle seit letztem History-Eintrag relevanten Änderungen ermitteln.
 3. Existieren unfertige Arbeitsstände?
 4. Sind Entscheidungen, Annahmen, offene Fragen, Risiken korrekt dokumentiert?
 5. `state.md` vollständig aktualisieren — alle Felder gemäß Struktur unter `Arbeitszustand`.
-6. Neuer History-Eintrag unter `02_work/history/YYYY-MM-DD-HHMM.md` nur bei substanziellem Fortschritt seit letztem Eintrag (siehe `Historie`). Sonst kein Eintrag; Nutzer knapp informieren.
+6. Neuer History-Eintrag unter `03_work/history/YYYY-MM-DD-HHMM.md` nur bei substanziellem Fortschritt seit letztem Eintrag (siehe `Historie`). Sonst kein Eintrag; Nutzer knapp informieren.
 7. Quellenstand prüfen: inventarisiert, freigegeben, ingestiert, teilweise ingestiert, zurückgestellt oder offen.
 8. Prüfen: relevante Quellen nicht ingestiert oder wesentliche Fragen/Widersprüche offen?
-9. Erst danach: liegen distributionsfähige Ergebnisse unter `02_work/`?
+9. Erst danach: liegen distributionsfähige Ergebnisse unter `03_work/`?
 10. Distribution sinnvoll: Nutzer konkrete Zielartefakte, Formate, Varianten vorschlagen.
-11. Erst nach dieser Abstimmung eindeutig distributionsfähige Ergebnisse benennen, Kopie nach `03_dist/` vorschlagen.
+11. Erst nach dieser Abstimmung eindeutig distributionsfähige Ergebnisse benennen, Kopie nach `04_dist/` vorschlagen.
 12. Keine Datei ohne ausdrückliche Nutzer-Zustimmung kopieren oder überschreiben.
 13. Keine Arbeitsdateien automatisch verschieben.
 14. Bei unklarem Reifegrad:
