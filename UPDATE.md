@@ -49,8 +49,17 @@ Gilt für Projekte mit `.template-version` und `synced` vor `2026-09-01`.
 | Alt | Neu | Umgang |
 |---|---|---|
 | `01_sources/` | `01_sources/` | unverändert |
-| `02_work/source-index.md`, Wissensstand | `02_context/` | bewusst verschieben und Links prüfen |
-| übrige `02_work/`-Dateien | `03_work/` | bewusst verschieben; Themen ggf. in Unterordner legen |
-| `03_dist/` | `04_dist/` | bewusst umbenennen oder kopieren; externe Links prüfen |
+| `02_work/source-index.md`, Wissensstand | `02_context/` | verschieben und Links prüfen |
+| übrige `02_work/`-Dateien | `03_work/` | verschieben; Themen ggf. in Unterordner legen |
+| `03_dist/` | `04_dist/` | umbenennen oder verschieben; externe Links prüfen |
 
-Migration nicht automatisch ausführen. Vorher lokale Links, Skripte und aktive Dateien prüfen; `01_sources/` nie verändern. Danach `.template-version` auf den neuen Template-Stand aktualisieren.
+Vorgehen:
+
+1. Inhalte von `02_work/` und `03_dist/` vollständig inventarisieren.
+2. Nach obiger Tabelle verschieben; nichts überschreiben.
+3. Relative Links, Skripte, aktive Dateien und Verweise in `state.md` prüfen und anpassen.
+4. Prüfen, dass alle Inhalte aus den alten Ordnern in `02_context/`, `03_work/` oder `04_dist/` vorhanden und auffindbar sind.
+5. Erst danach die leeren alten Ordner `02_work/` und `03_dist/` entfernen. Inhalte nicht ungeprüft löschen.
+6. `01_sources/` nie verändern. Danach `.template-version` auf den neuen Template-Stand aktualisieren.
+
+Die Migration wird nicht automatisch durch `update template` ausgeführt; sie muss im betroffenen Projekt bewusst durchgeführt werden. Nach erfolgreicher Migration dürfen `02_work/` und `03_dist/` nicht als parallele Altstruktur bestehen bleiben.
