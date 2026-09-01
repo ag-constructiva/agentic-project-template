@@ -27,6 +27,8 @@ getrennt und nachvollziehbar.
 12. Aktuelle ausdrückliche Nutzeranweisungen können frühere Entscheidungen
     ersetzen; die Änderung in `state.md` und bei wesentlichen Entscheidungen in
     `decisions.md` festhalten.
+13. Vor jeder neuen inhaltlichen Arbeit den aktuellen Projektkontext
+    wiederherstellen und dem Nutzer kurz sichtbar zusammenfassen.
 
 Bei Konflikten gilt diese Reihenfolge:
 
@@ -214,6 +216,36 @@ Updated: YYYY-MM-DD HH:MM
 Unter `Decisions` nur aktuell gültige Entscheidungen mit Verweis auf
 `03_work/decisions.md` führen.
 
+## Context-Restore-Gate
+
+Bei `start`, `update` und beim Beginn eines neuen Chats zu diesem Projekt gilt
+vor jeder Analyse, Änderung oder Ingestion:
+
+1. `03_work/state.md` lesen.
+2. `02_context/source-index.md` auf Quellenstand, offene Ingestion und neue oder
+   veränderte Quellen prüfen.
+3. Die von `state.md` referenzierten aktuellen Arbeitsdateien prüfen.
+4. Struktur von `03_work/` prüfen: Dateien sollen auffindbar, sinnvoll gruppiert
+   und von temporären oder archivierten Inhalten getrennt sein. Bei Bedarf
+   konkreten Vorschlag machen, aber nicht ohne Zustimmung umfangreich
+   umorganisieren.
+5. `03_work/decisions.md` für die unter `state.md` genannten oder zuletzt
+   relevanten Entscheidungen lesen.
+6. Einen kurzen Wiederaufnahme-Block ausgeben mit:
+   - aktuellem Ziel und Projektstand,
+   - letzter Arbeit,
+   - aktuell gültigen Entscheidungen,
+   - offenen Fragen und Risiken,
+   - nicht ingestierten oder veränderten relevanten Quellen,
+   - nächsten sinnvollen Schritten.
+7. Erst danach mit der eigentlichen Nutzeraufgabe fortfahren.
+
+Offene Fragen und Risiken wiederholen, auch wenn sie für die aktuelle Aufgabe
+zunächst nicht blockieren. Als „bereits dokumentiert“ erkannte Punkte nicht
+erneut ungeprüft entscheiden. Wenn `state.md` fehlt, zuerst `INIT.md` lesen.
+Wenn State und Arbeitsdateien widersprüchlich wirken, den Widerspruch nennen
+und vor einer richtungsändernden Entscheidung klären.
+
 ### Decision Records
 
 Wesentliche Entscheidungen als append-only Einträge in
@@ -290,9 +322,10 @@ Normale Sprache genügt; die folgenden semantischen Befehle sind Richtwerte.
 4. `01_sources/` nur auf neue oder veränderte Dateien gegenüber dem
    Quellenindex prüfen; keine automatische Inhaltsauswertung.
 5. Neue oder veränderte Quellen knapp melden und `update` vorschlagen.
-6. Ohne neue Quellen Ziel, letzten Stand und sinnvolle nächste Schritte knapp
+6. Das Context-Restore-Gate vollständig ausführen.
+7. Ohne neue Quellen Ziel, letzten Stand und sinnvolle nächste Schritte knapp
    zusammenfassen.
-7. Beim normalen `start` keine Dateien verändern.
+8. Beim normalen `start` keine Dateien verändern.
 
 ### `status`
 
@@ -307,21 +340,26 @@ Normale Sprache genügt; die folgenden semantischen Befehle sind Richtwerte.
 1. `state.md` vollständig auf Basis des aktuellen Gesprächsstands aktualisieren.
 2. Alle Felder der Mindeststruktur beibehalten.
 3. Keine erneute Quellenprüfung, kein History-Eintrag und keine Distribution.
+4. Die Struktur von `03_work/` kurz prüfen und bei erkennbarem Bedarf einen
+   konkreten, optionalen Verbesserungsvorschlag nennen.
+5. Danach kurz den gesicherten Stand, offene Fragen, Risiken, Strukturhinweis
+   und nächsten Schritt wiedergeben.
 
 ### `update` / `update sources`
 
-1. `state.md` und `02_context/source-index.md` lesen.
-2. `01_sources/` inventarisieren und neue, veränderte oder nicht erfasste
+1. Zuerst das Context-Restore-Gate vollständig ausführen.
+2. `state.md` und `02_context/source-index.md` lesen.
+3. `01_sources/` inventarisieren und neue, veränderte oder nicht erfasste
    Quellen feststellen.
-3. Quellenindex aktualisieren, ohne neue Quellen automatisch zu ingestieren.
-4. Ingestion-Auswahl und Reihenfolge vorschlagen.
-5. Nur freigegebene oder eindeutig beauftragte Quellen auswerten.
-6. Status und Umfang pro Quelle dokumentieren.
-7. Kontext, Arbeitsdateien, Referenzen, Annahmen, Entscheidungen und offene
+4. Quellenindex aktualisieren, ohne neue Quellen automatisch zu ingestieren.
+5. Ingestion-Auswahl und Reihenfolge vorschlagen.
+6. Nur freigegebene oder eindeutig beauftragte Quellen auswerten.
+7. Status und Umfang pro Quelle dokumentieren.
+8. Kontext, Arbeitsdateien, Referenzen, Annahmen, Entscheidungen und offene
    Fragen gegen den neuen Stand prüfen.
-8. Widersprüche lösen oder dokumentieren.
-9. `state.md` aktualisieren.
-10. `04_dist/` unverändert lassen; Distribution erst nach Abstimmung vorschlagen.
+9. Widersprüche lösen oder dokumentieren.
+10. `state.md` aktualisieren.
+11. `04_dist/` unverändert lassen; Distribution erst nach Abstimmung vorschlagen.
 
 ### `close` / `session close`
 
@@ -337,6 +375,8 @@ Normale Sprache genügt; die folgenden semantischen Befehle sind Richtwerte.
    Ein-Zeilen-Headline aus `Completed` ausgeben.
 8. Kurz berichten: Erledigtes, gültige Entscheidungen, offene Fragen und
    Risiken, nicht ausgewertete Quellen sowie nächsten sinnvollen Schritt.
+9. Diese Abschlusszusammenfassung auch ausgeben, wenn kein History-Eintrag
+   angelegt wurde.
 
 ### `update template` / `update project-template`
 
